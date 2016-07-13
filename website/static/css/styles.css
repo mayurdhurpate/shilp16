@@ -773,7 +773,6 @@ blockquote .logo-quote {
 Showcase
 ========================================================================== */
 .showcase {
-    background: url('../img/showcase-bg-fixed-01.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 .showcase h1 {
@@ -792,7 +791,6 @@ Showcase
     left: 20%;
     min-height: 676px;
     width: 359px;
-    background: url('../img/iphone-skeleton.png') no-repeat center center;
 }
 .device-content {
     position: absolute;
