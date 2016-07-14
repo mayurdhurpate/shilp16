@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import *
+
 from django.template import RequestContext
 from django.http import HttpResponse,HttpResponseRedirect
 # Create your views here.
@@ -16,3 +18,15 @@ def ppt(request):
 
 def conclave(request):
     return render(request,"city.html",{},RequestContext(request))
+
+def casubmit(request):
+    if request.method=='POST':
+        u=CAUser.objects.create(name=request.POST['name'],
+                                    email=request.POST['email'],
+                                    phone=request.POST['phone'],
+                                    promotion = request.POST['promotion']   ,
+                                    college=request.POST['college'],
+                                    year=request.POST['radio'],
+                                    resume=request.POST['resume'])
+        return HttpResponse('Your response have been recorded.')
+    return HttpResponse('Authentication failed.')
