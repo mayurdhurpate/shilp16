@@ -1,17 +1,17 @@
 @font-face {
 	font-family: 'fontawesome';
-	
+	src:url('../fonts/fontawesome/fontawesome.eot?-v92fkb');
+	src:url('../fonts/fontawesome/fontawesome.eot?#iefix-v92fkb') format('embedded-opentype'),
+		url('../fonts/fontawesome/fontawesome.woff?-v92fkb') format('woff'),
+		url('../fonts/fontawesome/fontawesome.ttf?-v92fkb') format('truetype'),
+		url('../fonts/fontawesome/fontawesome.svg?-v92fkb#fontawesome') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Blokk';
-	
-	font-weight: normal;
-	font-style: normal;
-}
 
+}
 body {
 	position: relative;
 }
@@ -321,4 +321,11 @@ p.dummy-text:nth-child(3) {
 		height: 212px;
 	}
 
+}
+.popup-text{
+		max-width: 600px;
+	width: 90%;
+	
+	-webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+	transition: opacity 0.5s, transform 0.5s;
 }
