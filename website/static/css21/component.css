@@ -272,7 +272,7 @@ p.dummy-text:nth-child(3) {
 	margin: 0 auto;
 	padding: 10px 0;
 	color: #111111;
-	font-size: 0.5em;
+	font-size: 1;
 	font-family: 'Blokk', Arial, serif;
 }
 
