@@ -41,7 +41,7 @@ def pptsubmit(request):
                                     phone=request.POST['phone'],
                                     designation = request.POST['designation']   ,
                                     college=request.POST['college'],
-                                    year=request.POST['radio'],
-                                    resume=request.POST['resume'])
+                                    author=request.POST['author'] ,
+                                    coauthor=request.POST['coauthor'])
         return HttpResponse('Your response have been recorded.')
     return HttpResponse('Authentication failed.')
