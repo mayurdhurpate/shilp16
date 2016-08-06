@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.shortcuts import render
 from .models import *
 
@@ -43,5 +44,12 @@ def pptsubmit(request):
                                     college=request.POST['college'],
                                     author=request.POST['author'] ,
                                     coauthor=request.POST['coauthor'])
+        send_mail(
+            'Subject here',
+            'Here is the message.',
+            'no-reply@shilpiitbhu.org',
+            [u.email],
+            fail_silently=False,
+        )
         return HttpResponse('Your response have been recorded.')
     return HttpResponse('Authentication failed.')

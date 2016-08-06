@@ -9,6 +9,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+
+
+
 import os
 import dj_database_url
 
@@ -134,3 +137,13 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'no-reply@shilpiitbhu.org'
+EMAIL_HOST_PASSWORD = 'dubaramatbolna'
+DEFAULT_FROM_EMAIL = "no-reply@shilpiitbhu.org"
