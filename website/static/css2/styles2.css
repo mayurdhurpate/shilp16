@@ -316,3 +316,11 @@ Waypoints
 	opacity: 0;
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;}
+	.event-content{
+		max-width: 600px;
+		margin: 0 auto;
+		padding:10 auto;
+	}
+	.font{
+		font-size: 15px;
+	}
