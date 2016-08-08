@@ -44,9 +44,11 @@ def pptsubmit(request):
                                     college=request.POST['college'],
                                     author=request.POST['author'] ,
                                     coauthor=request.POST['coauthor'])
+        
         send_mail(
             'Subject here',
-            'Here is the message.',
+            'Thanks for submission. We have recorded your response.\nTitle of Paper'+ u.title+'\nName of 1st Author'+u.author+'\nCollege/university'
+            +u.college+'\ndesignation'+u.designation+'\nCo-Author'+u.coauthor+'\nPhone No.'+u.phone+'\nEmail'+u.email,
             'no-reply@shilpiitbhu.org',
             [u.email],
             fail_silently=False,
