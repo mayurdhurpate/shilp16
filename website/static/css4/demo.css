@@ -16,8 +16,8 @@ html { height: 100%; }
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
+	padding-top: 0;
+	margin-top: 0;
 }
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -37,7 +37,7 @@ body {
 }
 
 a {
-	color: #555;
+	color: #bfbfbf;
 	text-decoration: none;
 }
 
@@ -157,4 +157,9 @@ a {
 .codrops-demos a.current-demo:hover {
 	color: #aaa;
 	border-color: #aaa;
+}
+#sitemap {
+	min-height : 100px;
+	text-align : left;
+	background-color: #303135;
 }
