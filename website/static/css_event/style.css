@@ -17,6 +17,7 @@ body{
 }
 a:hover, a:visited, a{
 	text-decoration: none;
+	
 }
 /*header area*/
 .top-header{

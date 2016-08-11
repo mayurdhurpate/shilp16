@@ -170,3 +170,15 @@ ul.nav {
 	color:#337ab7;
 	font-size:12px;
 }
+
+#sitemap a:hover {
+	color:#23527c;
+}
+#sitemap a {
+	color:#BFBFBF;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+#sitemap a:active {
+	text-decoration: none;
+	color:#BFBFBF;
+}
