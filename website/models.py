@@ -31,7 +31,7 @@ class PPTUser(models.Model):
         return "%s, %s" % (self.author, self.title)
 
 
-class RegUser(models.Model):
+class User(models.Model):
     event=models.CharField(max_length=100)
     teamname= models.CharField(max_length=100)
     teamleader = models.CharField(max_length=100)

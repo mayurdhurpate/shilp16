@@ -58,7 +58,7 @@ def pptsubmit(request):
 
 def regsubmit(request):
     if request.method=='POST':
-        u=RegUser.objects.create(event=request.POST['event'],
+        u=User.objects.create(event=request.POST['event'],
                                     teamname=request.POST['teamname'],
                                     teamleader=request.POST['teamleader'],
                                     Email= request.POST['Email']   ,
