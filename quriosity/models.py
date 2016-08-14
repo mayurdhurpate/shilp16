@@ -4,13 +4,13 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
-class QUesr(models.Model):
+class QUser(models.Model):
     name = models.CharField(_('name'), max_length=100)
     email = models.EmailField(_('email'))
     phone = models.CharField(_('phone'), max_length=15)
 
     class Meta:
-        verbose_name - _('quesr')
+        verbose_name = _('quesr')
         verbose_name_plural = _('quesrs')
 
     def __unicode__(self):
