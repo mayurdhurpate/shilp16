@@ -52,10 +52,10 @@ def signup(request):
             t.members.add(u2)
             r.append(email2)
 
-        send_mail("Quriosity'16: Embrace curiosity",
-            "Thanks for registering for Quriosity'16.\nFor any quries contact quriosity@shilpiitbhu.org",
-            'no-reply@shilpiitbhu.org',
-            r, fail_silently=False)
+        # send_mail("Quriosity'16: Embrace curiosity",
+        #     "Thanks for registering for Quriosity'16.\nFor any quries contact quriosity@shilpiitbhu.org",
+        #     'no-reply@shilpiitbhu.org',
+        #     r, fail_silently=False)
 
         return JsonResponse({'error': False, 'msg': 'Thanks for registering. For your information check your mail after sometime.'})
     else:
