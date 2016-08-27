@@ -1,17 +1,20 @@
-function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie != '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
+// function getCookie(name) {
+//     var cookieValue = null;
+//     if (document.cookie && document.cookie != '') {
+//         var cookies = document.cookie.split(';');
+//         for (var i = 0; i < cookies.length; i++) {
+//             var cookie = jQuery.trim(cookies[i]);
+//             // Does this cookie string begin with the name we want?
+//             if (cookie.substring(0, name.length + 1) == (name + '=')) {
+//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+//                 break;
+//             }
+//         }
+//     }
+//     return cookieValue;
+// }
+function getCSRF(){
+    return document.getElementsByName('csrfmiddlewaretoken')[0].value;
 }
 
 $( document ).ready(function() {
@@ -43,7 +46,7 @@ $( document ).ready(function() {
     //signup submit
     $('#signup-submit').click(function(){
         data = {
-            csrfmiddlewaretoken: getCookie('csrftoken'),
+            csrfmiddlewaretoken: getCSRF(),
             name: $('#name').val(),
             pwd: $('#pwd').val(),
             slot: $('#slot').val(),
@@ -55,6 +58,7 @@ $( document ).ready(function() {
             email2: $('#signup-email2').val(),
             phone2: $('#signup-phone2').val()
         }
+        $('#signup-submit').toggle();
 
         $.ajax({
             url: '/quriosity/signup/',
@@ -80,12 +84,13 @@ $( document ).ready(function() {
                 }
             }
         })
+        $('#signup-submit').toggle();
     });
 
     // help question submit
     $('#help-submit').click(function(){
         data = {
-            csrfmiddlewaretoken: getCookie('csrftoken'),
+            csrfmiddlewaretoken: getCSRF(),
             name: $('#help-name').val(),
             email: $('#help-email').val(),
             msg: $('#help-msg').val()
