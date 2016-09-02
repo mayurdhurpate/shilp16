@@ -22,6 +22,10 @@ class TeamAdmin(admin.ModelAdmin):
 class HelpQuestionAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'resolved')
 
+class QuestionAdmin(admin.ModelAdmin):
+    list_display = ('title', 'score')
+
 admin.site.register(QUser, QUserAdmin)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(HelpQuestion, HelpQuestionAdmin)
+admin.site.register(Question, QuestionAdmin)
