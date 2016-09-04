@@ -41,3 +41,16 @@ class HelpQuestion(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Question(models.Model):
+    title = models.CharField(_('title'), max_length=30)
+    content = models.TextField(_('content'))
+    score = models.IntegerField(_('score'))
+    answer = models.IntegerField(_('answer'))
+
+    class Meta:
+        verbose_name = _('Question')
+        verbose_name_plural = _('Questions')
+
+    def __unicode__(self):
+        return self.title
