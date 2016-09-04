@@ -173,7 +173,7 @@ Global Styles
 ========================================================================== */
 a { color: #353535; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
 a:hover, a:focus { color: #3dc9b3; text-decoration: none; }
-p { color: #8c9398; line-height: 20px; font-size: 14px; }
+
 h2 { font-size: 15px; color: #353535; text-transform: uppercase; font-weight: bold; }
 h2::after { content: " "; display: block; width: 35px; margin: 25px auto; }
 .section-padding { padding: 40px 0 50px }
