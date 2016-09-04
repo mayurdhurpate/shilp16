@@ -33,8 +33,28 @@ body
    FONTS
    ========================================================================== */
 
+@font-face {
+    font-family: 'kelson_sansbold';
+    src: url('/css/fonts/kelson_sans_bold-webfont.eot');
+    src: url('/css/fonts/kelson_sans_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/kelson_sans_bold-webfont.woff') format('woff'),
+         url('/css/fonts/kelson_sans_bold-webfont.ttf') format('truetype'),
+         url('/css/fonts/kelson_sans_bold-webfont.svg#kelson_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'OpenSansRegular';
+    src: url('/css/fonts/OpenSans-Regular-webfont.eot');
+    src: url('/css/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/css/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('/css/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('/css/fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
+}
 
 body, input, textarea {font-family: 'OpenSansRegular', Arial, sans-serif;}
 
