@@ -23,6 +23,9 @@ def conclave(request):
 def register(request):
     return render(request,"register.html",{},RequestContext(request))
 
+def Staff(request):
+    return render(request,"Staff.html",{},RequestContext(request)) 
+
 def casubmit(request):
     if request.method=='POST':
         u=CAUser.objects.create(name=request.POST['name'],
@@ -55,6 +58,8 @@ def pptsubmit(request):
         )
         return HttpResponse('Your response have been recorded.')
     return HttpResponse('Authentication failed.')
+
+
 
 def regsubmit(request):
     if request.method=='POST':
@@ -90,3 +95,4 @@ def regsubmit(request):
         u.save()
         return HttpResponse('Your response have been recorded.')
     return HttpResponse('Authentication failed.')
+
