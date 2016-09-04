@@ -1,6 +1,9 @@
 .idp{
 	background: url(../img_event/industry.png);
 }
+body{
+	overflow: hidden;}
+
 .city{
 	background: url(../img_event/smart.png);
 }

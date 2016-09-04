@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^register$', views.register, name='register'),
     url(r'^casubmit/$', views.casubmit, name='casubmit'),
     url(r'^pptsubmit/$', views.pptsubmit, name='pptsubmit'),
+    url(r'^Staff$',views.Staff, name='Staff'),
 ]

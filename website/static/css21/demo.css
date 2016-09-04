@@ -17,7 +17,10 @@ body {
 	line-height: 1.25;
 	font-family: 'Lato', Arial, sans-serif;
 }
-
+.line{
+	margin: 0 0 0 0px;
+	color:#BFBFBF;
+}
 body.demo-2 {
 	background: #3498db;
 }
