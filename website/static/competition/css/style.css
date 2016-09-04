@@ -157,7 +157,7 @@ fieldset[disabled] .btn-primary.active {
 /**** Start Main Body Section ****/
 
 .mainbody-section {
-    padding-top: 50px;
+    padding-top: 20px;
     padding-bottom: 30px;
         background: url(../images/background.jpg) no-repeat;
     background-attachment: fixed;
