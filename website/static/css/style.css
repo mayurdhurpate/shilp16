@@ -714,7 +714,7 @@ h3.hdg {
 .show-grid [class^=col-] {
     background: #fff;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   line-height: 2em;
   border: 10px solid #f0f0f0;
 }
