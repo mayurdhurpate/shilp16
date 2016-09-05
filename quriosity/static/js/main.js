@@ -112,5 +112,36 @@ $( document ).ready(function() {
                 }
             }
         });
-    });  
+    });
+
+    //login submit
+    $('#login-submit').click(function(){
+        if ($('#login-name').val() && $('#login-pwd').val()){
+            data = {
+                csrfmiddlewaretoken: getCSRF(),
+                name: $('#login-name').val(),
+                pwd: $('#login-pwd').val()
+            }
+            $('#login-submit').toggle();
+
+            $.ajax({
+                url: '/quriosity/login/',
+                type: 'POST',
+                data: data,
+                dataType: 'json',
+                success: function(data){
+                    if (data.error){
+                        $('#login-name').val('');
+                        $('#login-pwd').val('');
+                        alert(data.msg);
+                    } else {
+                        window.location = "/quriosity/dashboard";
+                    }
+                }
+            });
+            $('#login-submit').toggle();
+        } else {
+            alert('Enter valid credentials!');
+        }
+    })  
 });
