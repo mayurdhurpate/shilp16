@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^regsubmit/$', views.regsubmit, name='regsubmit'),
     url(r'^casubmit/$', views.casubmit, name='casubmit'),
     url(r'^pptsubmit/$', views.pptsubmit, name='pptsubmit'),
-    url(r'^Staff$',views.Staff, name='Staff'),
+    url(r'^team$',views.Staff, name='Staff'),
 ]
