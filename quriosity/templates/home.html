@@ -102,7 +102,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/shilpiitbhu/" class="btn btn-simple btn-white btn-just-icon">
+                        <a href="https://www.facebook.com/events/978303445614068/" class="btn btn-simple btn-white btn-just-icon">
                             <i class="fa fa-facebook-square"></i>
                         </a>
                     </li>
@@ -128,6 +128,9 @@
                         <button class="btn btn-danger btn-raised btn-lg" data-toggle="modal" data-target="#registerModal">
                             Register
                         </button>
+                        <!-- <button class="btn btn-info btn-raised btn-lg" data-toggle="modal" data-target="#loginModal">
+                            Login
+                        </button> -->
                     </div>
                     <div class="col-md-6" style="z-index: 9999;">
                       <div class="type-wrap">
@@ -258,18 +261,18 @@
                                 <span class="input-group-addon">
                                     <i class="material-icons">face</i>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Team Name...">
+                                <input type="text" id="login-name" class="form-control" placeholder="Team Name..." required>
                             </div>
 
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="material-icons">lock_outline</i>
                                 </span>
-                                <input type="password" placeholder="Password..." class="form-control" />
+                                <input type="password" id="login-pwd" placeholder="Password..." class="form-control" required>
                             </div>
                         </div>
                         <div class="footer text-center">
-                            <a href="#pablo" class="btn btn-simple btn-primary btn-lg">Login</a>
+                            <button id="login-submit" class="btn btn-simple btn-primary btn-lg">Login</button>
                         </div>
                     </form>
                 </div>
@@ -317,8 +320,8 @@
                                     <div class="icon icon-danger">
                                         <i class="material-icons">people</i>
                                     </div>
-                                    <h4 class="info-title">2,000+ Indivisual Participation</h4>
-                                    <p>More than 2,000 indivisual participation from all over the nation last year.</p>
+                                    <h4 class="info-title">2,000+ Individual Participation</h4>
+                                    <p>More than 2,000 individual participation from all over the nation last year.</p>
                                 </div>
                             </div>
                         </div>
@@ -507,6 +510,10 @@
 
     </script>
     <script>
-        particlesJS.load('particles-js', '/static/particles.json');
+        var path = '/static/particles.json';
+        if ($(window).width() < 768){
+            path = '/static/particles-small.json';
+        }
+        particlesJS.load('particles-js', path);
     </script>
 </html>
