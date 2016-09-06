@@ -79,7 +79,7 @@ Main Components
 	margin-right: 5%;
 	width: 44px;
 	height: 100%;
-	background: url('../assets/cd-icon-menu.svg') no-repeat center center;
+
 
 	ul {
 		position: absolute;
@@ -209,22 +209,23 @@ Single slide style
 
 	li:nth-of-type(2) {
 	 	background-color: lighten($color-1, 8%);
-	 	background-image: url('../assets/tech-1-mobile.jpg');
+
 	}
 
 	li:nth-of-type(3) {
 	 	background-color: lighten($color-1, 20%);
-	 	background-image: url('../assets/tech-2-mobile.jpg');
+	 	
+
 	}
 
 	li:nth-of-type(4) {
 	 	background-color: $color-1;
-	 	background-image: url('../assets/video-replace-mobile.jpg');
+
 	}
 
 	li:nth-of-type(5) {
 	 	background-color: $color-1;
-	 	background-image: url(../assets/img.jpg);
+	 
 	}
 
 	.cd-full-width, 
@@ -572,7 +573,7 @@ Slider navigation
 			height: 24px;
 			top: 8px;
 			@include center(x);
-			background: url(../assets/cd-icon-navigation.svg) no-repeat 0 0;
+
 		}
 
 		.no-touch &:hover {

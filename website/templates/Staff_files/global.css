@@ -1,4 +1,4 @@
-﻿#teammap {
+#teammap {
     min-height: 100px;
     text-align: left;
     background-color: #303135;
@@ -69,11 +69,7 @@ body
    ========================================================================== */
 
 @font-face {
-    font-family: 'kelson_sansbold';
-    src: url('/css/fonts/kelson_sans_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/css/fonts/kelson_sans_bold-webfont.woff') format('woff'),
-         url('/css/fonts/kelson_sans_bold-webfont.ttf') format('truetype'),
-         url('/css/fonts/kelson_sans_bold-webfont.svg#kelson_sansbold') format('svg');
+
     font-weight: normal;
     font-style: normal;
 }
