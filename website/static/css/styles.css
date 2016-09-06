@@ -669,7 +669,7 @@ Features Slider
 }
 .features-slider {
     position: relative;
-    padding: 11% 100px 10% 100px;
+    padding: 4% 100px 10% 100px;
     height: 400px;
     background-color: #5a001c;
 }
