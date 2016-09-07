@@ -8,6 +8,9 @@ class QUser(models.Model):
     name = models.CharField(_('name'), max_length=100)
     email = models.EmailField(_('email'), unique=True)
     phone = models.CharField(_('phone'), max_length=15)
+    gender = models.CharField(_('gender'), max_length=5, default='M')
+    college = models.CharField(_('college'), max_length=50, default='')
+    year = models.CharField(_('year'), max_length=5, default='')
 
     class Meta:
         verbose_name = _('quesr')
@@ -15,6 +18,19 @@ class QUser(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Question(models.Model):
+    title = models.CharField(_('title'), max_length=30)
+    content = models.TextField(_('content'))
+    score = models.IntegerField(_('score'))
+    answer = models.CharField(_('answer'), max_length=40)
+
+    class Meta:
+        verbose_name = _('Question')
+        verbose_name_plural = _('Questions')
+
+    def __unicode__(self):
+        return self.title
 
 class Team(models.Model):
     name = models.CharField(_('name'), max_length=30, unique=True)
@@ -29,6 +45,18 @@ class Team(models.Model):
     def __unicode__(self):
         return self.name
 
+class Response(models.Model):
+    response = models.CharField(_('response'), max_length=40)
+    question = models.ForeignKey(Question)
+    team = models.ForeignKey(Team)
+
+    class Meta:
+        verbose_name = _('Response')
+        verbose_name_plural = _('Responses')
+
+    def __unicode__(self):
+        return self.team.name
+
 class HelpQuestion(models.Model):
     name = models.CharField(_('name'), max_length=50)
     email = models.EmailField()
@@ -42,15 +70,15 @@ class HelpQuestion(models.Model):
     def __unicode__(self):
         return self.name
 
-class Question(models.Model):
-    title = models.CharField(_('title'), max_length=30)
-    content = models.TextField(_('content'))
-    score = models.IntegerField(_('score'))
-    answer = models.IntegerField(_('answer'))
+class Slot(models.Model):
+    title = models.CharField(_('slot'), max_length=20)
+    start = models.DateTimeField(_('start time'))
+    end = models.DateTimeField(_('end time'))
+    question = models.ManyToManyField(Question)
 
     class Meta:
-        verbose_name = _('Question')
-        verbose_name_plural = _('Questions')
+        verbose_name = _('Slot')
+        verbose_name_plural = _('Slots')
 
     def __unicode__(self):
         return self.title
