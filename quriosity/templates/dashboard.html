@@ -16,7 +16,7 @@
                 </div>
                 <div id="collapse{{forloop.counter}}" class="panel-collapse collapse">
                   <div class="panel-body">
-                    {{question.content}}
+                    {{question.content | safe}}
                     <div class="row">
                       <div class="col-md-4">
                           <input type="text" class="form-control" id="ans-{{question.id}}" placeholder="Answer" style="color: black;">
