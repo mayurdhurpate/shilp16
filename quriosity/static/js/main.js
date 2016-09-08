@@ -18,6 +18,15 @@ function getCSRF(){
 }
 
 $( document ).ready(function() {
+    $.notify("Sorry for inconvenience but due to some unexpected error,\
+             we're unable to send confirmation mails but they are not \
+             required for participating in event.", {
+                clickToHide: true,
+                autoHideDelay: 10000,
+                className: 'info',
+                globalPosition: 'top left',
+             });
+
     // Typing configrations
     $("#typed").typed({
         stringsElement: $('#typed-strings'),
