@@ -1,0 +1,12 @@
+<table>
+{% for user in users %}
+<tr>
+    <td>{{user.email}}</td>
+    {% for team in user.team_set.all %}
+        <td>{{team.name}}</td>
+        <td>{{team.password}}</td>
+        <td>{{team.slot}}</td>
+    {% endfor %}
+</tr>
+{% endfor %}
+</table>

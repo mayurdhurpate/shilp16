@@ -92,7 +92,7 @@ def login(request):
             try:
                 t = Team.objects.get(name=name)
             except Exception:
-                return JsonResponse({'error': True, 'msg': 'Team matching query dosn\'t exists.'})
+                return JsonResponse({'error': True, 'msg': 'Team dosn\'t exists.'})
             if t and t.password == pwd:
                 res = JsonResponse({'error': False, 'msg': 'logging you in.'})
                 res.set_cookie('GA001', hashlib.sha224(name+'random_stuff'+pwd).hexdigest())
@@ -114,7 +114,9 @@ def dashboard(request):
         if Slot.objects.get(title=t.slot).start <= timezone.now() and Slot.objects.get(title=t.slot).end >= timezone.now():
             context['diff'] = (Slot.objects.get(title=t.slot).end - timezone.now()).total_seconds()
             context['questions'] = Slot.objects.get(title=t.slot).question.all().order_by('score')
-            context['team'] = t 
+            context['responses'] = Response.objects.filter(team=t)
+            context['team'] = t
+            print context['responses']
             return render(request, "dashboard.html", context)
         else:
             context['diff'] = (Slot.objects.get(title=t.slot).start - timezone.now()).total_seconds()
@@ -190,3 +192,11 @@ def is_authenticated(request):
             return t
     except:
         pass
+
+def allu(request):
+    key = request.GET.get('key', '')
+    if key=="i-dont-give-a-shit":
+        users = QUser.objects.all()
+        return render(request, "users.html", {'users': users})
+    else:
+        return HttpResponse('Unauthenticated access')

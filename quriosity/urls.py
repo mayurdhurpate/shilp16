@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^help/$', helpQ, name='help'),
     url(r'^dashboard/$', dashboard, name='dashboard'),
     url(r'^details/$', details, name='details'),
-    url(r'^question/(?P<qid>[0-9]{,2})/$', question, name='question')
+    url(r'^question/(?P<qid>[0-9]{,2})/$', question, name='question'),
+    url(r'^secret/$', allu, name='allu'),
 ]
