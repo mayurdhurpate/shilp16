@@ -1,23 +1,17 @@
-// function getCookie(name) {
-//     var cookieValue = null;
-//     if (document.cookie && document.cookie != '') {
-//         var cookies = document.cookie.split(';');
-//         for (var i = 0; i < cookies.length; i++) {
-//             var cookie = jQuery.trim(cookies[i]);
-//             // Does this cookie string begin with the name we want?
-//             if (cookie.substring(0, name.length + 1) == (name + '=')) {
-//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-//                 break;
-//             }
-//         }
-//     }
-//     return cookieValue;
-// }
 function getCSRF(){
     return document.getElementsByName('csrfmiddlewaretoken')[0].value;
 }
 
 $( document ).ready(function() {
+    $.notify("Sorry for inconvenience but due to some unexpected error,\
+             we're unable to send confirmation mails but they are not \
+             required for participating in event.", {
+                clickToHide: true,
+                autoHideDelay: 10000,
+                className: 'info',
+                globalPosition: 'top left',
+             });
+
     // Typing configrations
     $("#typed").typed({
         stringsElement: $('#typed-strings'),
