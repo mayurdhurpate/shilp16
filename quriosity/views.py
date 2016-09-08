@@ -56,12 +56,17 @@ def signup(request):
             u2.save()
             t.members.add(u2)
 
+        res = JsonResponse({'error': False, 'msg': 'logging you in.'})
+        res.set_cookie('GA001', hashlib.sha224(name+'random_stuff'+pwd).hexdigest())
+        res.set_cookie('name', name)
+        return res
+
         # send_mail("Quriosity'16: Embrace curiosity",
         #     "Thanks for registering for Quriosity'16.\nFor any quries contact quriosity@shilpiitbhu.org",
         #     'no-reply@shilpiitbhu.org',
         #     r, fail_silently=False)
 
-        return JsonResponse({'error': False, 'msg': 'Thanks for registering. For your information check your mail after sometime.'})
+        # return res
     else:
         return redirect('/quriosity')
 
