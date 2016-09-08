@@ -120,25 +120,26 @@ def details(request):
     if t:
         if request.method == "POST":
             members = t.members.all()
-            phone1 = request.POST.get('phone-1', '')
-            clg1 = request.POST.get('clg-1', '')
-            year1 = request.POST.get('year-1','')
-            gender1 = request.POST.get('sex-1','')
+            print members
+            phone1 = request.POST.get('phone1')
+            clg1 = request.POST.get('clg1')
+            year1 = request.POST.get('year1')
+            gender1 = request.POST.get('sex1')
             members[0].phone = phone1
             members[0].college = clg1
             members[0].year = year1
             members[0].gender = gender1
             members[0].save()
             if len(members) == 2:
-                phone2 = request.POST.get('phone-2', '')
-                clg2 = request.POST.get('clg-2', '')
-                year2 = request.POST.get('year-2','')
-                gender2 = request.POST.get('sex-2','')
-                members[1].phone = phone2
-                members[1].college = clg2
-                members[1].year = year2
-                members[1].gender = gender2
-                members[1].save()                
+                phone2 = request.POST.get('phone2')
+                clg2 = request.POST.get('clg2')
+                year2 = request.POST.get('year2')
+                gender2 = request.POST.get('sex2')
+                members[1].phone = phone1
+                members[1].college = clg1
+                members[1].year = year1
+                members[1].gender = gender1
+                members[1].save() 
             return redirect('/quriosity/dashboard')
         else:
             members = t.members.all()

@@ -38,13 +38,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><button class="btn btn-success" data-toggle="modal" data-target="#rulesModal">Rules</button></li>
                     <li><button class="btn btn-success" data-toggle="modal" data-target="#helpModal">Help</button></li>
-                    <li class="dropdown">
-                        <button class="dropdown-toggle btn btn-success" data-toggle="dropdown">{{team.name}}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="{% url 'details' %}">Profile Details</a></li>
-                          <li><a href="{% url 'logout' %}">Logout</a></li>
-                        </ul>
-                    </li>
+                    <li><a class="btn btn-success" href="{% url 'details' %}">Profile Details</a></li>
+                    <li><a class="btn btn-success" href="{% url 'logout' %}">Logout</a></li>
                 </ul>
             </div>
         </div>

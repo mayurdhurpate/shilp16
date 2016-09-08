@@ -8,9 +8,9 @@ class QUser(models.Model):
     name = models.CharField(_('name'), max_length=100)
     email = models.EmailField(_('email'), unique=True)
     phone = models.CharField(_('phone'), max_length=15)
-    gender = models.CharField(_('gender'), max_length=5, default='M')
-    college = models.CharField(_('college'), max_length=50, default='')
-    year = models.CharField(_('year'), max_length=5, default='')
+    gender = models.CharField(_('gender'), max_length=5, blank=True, null=True)
+    college = models.CharField(_('college'), max_length=50, blank=True, null=True)
+    year = models.CharField(_('year'), max_length=5, blank=True, null=True)
 
     class Meta:
         verbose_name = _('quesr')
