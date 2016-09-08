@@ -89,7 +89,10 @@ def login(request):
         pwd = request.POST.get('pwd', '')
 
         if name != '' and pwd != '':
-            t = Team.objects.get(name=name)
+            try:
+                t = Team.objects.get(name=name)
+            except Exception:
+                return JsonResponse({'error': True, 'msg': 'Team matching query dosn\'t exists.'})
             if t and t.password == pwd:
                 res = JsonResponse({'error': False, 'msg': 'logging you in.'})
                 res.set_cookie('GA001', hashlib.sha224(name+'random_stuff'+pwd).hexdigest())
