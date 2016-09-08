@@ -30,17 +30,25 @@
             <p>No questions for this round!!</p>
             {% endfor %}
           </div>
+          <h5>During a contest contestants can ask questions to the contest jury via email <a href="mailto:quriosity@shilpiitbhu.org">quriosity@shilpiitbhu.org</a> . The questions may concern mistakes, ambiguous spots and inaccuracies in the statement.</h5>
         </div>
     </div>
 {% endblock %}
 
 {% block script %}
+<script src="/static/js/notify.min.js"></script>
 <script>
   function getCSRF(){
       return document.getElementsByName('csrfmiddlewaretoken')[0].value;
   }
 
   setTimeout(function(){ location.reload(); }, ({{diff}}+2)*1000);
+
+  $(document).ready(function(){
+    {% for res in responses %}
+    $('#ans-{{res.question.id}}').val({{res.response}});
+    {% endfor %}
+  });
 
   $(".submit").click(function(){
     data = {
@@ -58,9 +66,9 @@
       success: function(data){
         $('#'+i).toggle();
         if (data.error){
-          alert(data.msg);
+          $.notify(data.msg, "error");
         } else {
-          alert(data.msg);
+          $.notify(data.msg, "info");
         }
       }
     });
