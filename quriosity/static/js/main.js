@@ -81,6 +81,7 @@ $( document ).ready(function() {
                     $('#signup-email2').val('');
                     $('#signup-phone2').val('');
                     alert(data.msg);
+                    location.reload();
                 }
             }
         })

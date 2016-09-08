@@ -1,7 +1,7 @@
 {
   "particles": {
     "number": {
-      "value": 20,
+      "value": 15,
       "density": {
         "enable": false,
         "value_area": 400
@@ -71,14 +71,14 @@
     "detect_on": "window",
     "events": {
       "onhover": {
-        "enable": true,
+        "enable": false,
         "mode": "grab"
       },
       "onclick": {
-        "enable": true,
+        "enable": false,
         "mode": "push"
       },
-      "resize": true
+      "resize": false
     },
     "modes": {
       "grab": {
