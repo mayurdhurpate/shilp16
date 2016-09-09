@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/static/css/material-kit.css" rel="stylesheet"/>
     <style>
     @font-face {
@@ -36,8 +36,9 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><button class="btn btn-success" data-toggle="modal" data-target="#rulesModal">Rules</button></li>
-                    <li><button class="btn btn-success" data-toggle="modal" data-target="#helpModal">Help</button></li>
+                    <li><a class="btn btn-success" id="counter" style="font-size: 1.5em"></a></li>
+                    <li><a class="btn btn-success" data-toggle="modal" data-target="#rulesModal">Rules</a></li>
+                    <li><a class="btn btn-success" data-toggle="modal" data-target="#helpModal">Help</a></li>
                     <li><a class="btn btn-success" href="{% url 'details' %}">Profile Details</a></li>
                     <li><a class="btn btn-success" href="{% url 'logout' %}">Logout</a></li>
                 </ul>
