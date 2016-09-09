@@ -7,6 +7,9 @@ from datetime import datetime
 from django.utils import timezone
 from .models import *
 
+questions = {}
+slots = {}
+
 def home(request):
     if is_authenticated(request):
         return redirect('dashboard')
@@ -102,12 +105,20 @@ def dashboard(request):
     t = is_authenticated(request)
     if t:
         context = {}
-        s = Slot.objects.get(title=t.slot)
+        slot = t.slot
+        if slots.has_key(t.slot):
+            s = slots[t.slot]
+        else:
+            slots[t.slot] = Slot.objects.get(title=slot)
+            s = slots[t.slot]
         now = timezone.now()
-        print now, s.start, s.end
         if s.start <= now and s.end >= now:
             context['diff'] = (s.end - now).total_seconds()
-            context['questions'] = s.question.all().order_by('score')
+            if questions.has_key(t.slot):
+                context['questions'] = questions.get(t.slot)
+            else:
+                questions[t.slot] = s.question.all().order_by('score')
+                context['questions'] = questions[t.slot]
             context['team'] = t
             return render(request, "dashboard.html", context)
         else:
@@ -144,9 +155,12 @@ def question(request, qid):
         if request.method == "POST":
             response = request.POST.get('ans', '')
             num = request.POST.get('num', '')
-            s = Slot.objects.get(title=t.slot)
+            if slots.has_key(t.slot):
+                s = slots[t.slot]
+            else:
+                slots[t.slot] = Slot.objects.get(title=slot)
+                s = slots[t.slot]
             now = timezone.now()
-            print num
             if response and num and s.start <= now and s.end >= now:
                 try:
                     if int(num) == 1:
