@@ -28,27 +28,27 @@
         <div class="col-sm-6">
             <div class="form-group label-floating">
                 <label class="control-label">Member {{forloop.counter}} Phone</label>
-                <input type="phone" class="form-control" value="{{mem.phone}}" name="phone{{forloop.counter}}" required>
+                <input type="phone" class="form-control" value="{{mem.phone}}" name="phone{{forloop.counter}}" maxlength="13" required>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group label-floating">
                 <label class="control-label">Member {{forloop.counter}} College</label>
-                <input type="text" class="form-control" value="{{mem.college}}" name="clg{{forloop.counter}}" required>
+                <input type="text" class="form-control" value="{{mem.college}}" name="clg{{forloop.counter}}" maxlength="50" required>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-3">
             <div class="form-group label-floating">
-                <label class="control-label">Member {{forloop.counter}} Year</label>
-                <input type="text" class="form-control" value="{{mem.year}}" name="year{{forloop.counter}}" required>
+                <label class="control-label">Member {{forloop.counter}} Year (1/2/3/4/5/None)</label>
+                <input type="text" class="form-control" value="{{mem.year}}" name="year{{forloop.counter}}" maxlength="4" required>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group label-floating">
-                <label class="control-label">Member {{forloop.counter}} Gender</label>
-                <input type="text" class="form-control" value="{{mem.gender}}" name="sex{{forloop.counter}}" required>
+                <label class="control-label">Member {{forloop.counter}} Gender (M/F)</label>
+                <input type="text" class="form-control" value="{{mem.gender}}" name="sex{{forloop.counter}}" maxlength="4" required>
             </div>
         </div>
     </div>

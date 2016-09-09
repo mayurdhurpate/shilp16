@@ -8,8 +8,7 @@ from django.utils import timezone
 from .models import *
 
 def home(request):
-    t = is_authenticated(request)
-    if t:
+    if is_authenticated(request):
         return redirect('dashboard')
     else:
         return render(request, 'home.html', {})
@@ -24,10 +23,13 @@ def signup(request):
         email1 = request.POST.get('email1', '')
         phone1 = request.POST.get('phone1', '')
 
-        if name and not Team.objects.filter(name=name).exists():
-            t = Team(name=name, password=pwd, slot=slot)
+        if name and pwd:
+            if not Team.objects.filter(name=name).exists():
+                t = Team(name=name, password=pwd, slot=slot)
+            else:
+                return JsonResponse({'msg': 'Team name already exists!!', 'error': True})
         else:
-            return JsonResponse({'msg': 'Team name already exists!!', 'error': True})
+            return JsonResponse({'msg': 'Enter valid Team name and Password', 'error': True})
 
         if name1 and email1 and phone1:
             if not QUser.objects.filter(email=email1).exists():
@@ -56,17 +58,9 @@ def signup(request):
             u2.save()
             t.members.add(u2)
 
-        res = JsonResponse({'error': False, 'msg': 'logging you in.'})
-        res.set_cookie('GA001', hashlib.sha224(name+'random_stuff'+pwd).hexdigest())
-        res.set_cookie('name', name)
-        return res
-
-        # send_mail("Quriosity'16: Embrace curiosity",
-        #     "Thanks for registering for Quriosity'16.\nFor any quries contact quriosity@shilpiitbhu.org",
-        #     'no-reply@shilpiitbhu.org',
-        #     r, fail_silently=False)
-
-        # return res
+        request.session['name'] = name
+        request.session['secret'] = name+'random_stuff'+pwd
+        return JsonResponse({'error': False, 'msg': 'logging you in.'})
     else:
         return redirect('/quriosity')
 
@@ -88,20 +82,17 @@ def login(request):
         name = request.POST.get('name', '')
         pwd = request.POST.get('pwd', '')
 
-        if name != '' and pwd != '':
+        if name and pwd:
             try:
                 t = Team.objects.get(name=name)
             except Exception:
                 return JsonResponse({'error': True, 'msg': 'Team dosn\'t exists.'})
-            if t and t.password == pwd:
-                res = JsonResponse({'error': False, 'msg': 'logging you in.'})
-                res.set_cookie('GA001', hashlib.sha224(name+'random_stuff'+pwd).hexdigest())
-                res.set_cookie('name', name)
-                return res
-            elif t:
-                return JsonResponse({'error': True, 'msg': 'Password is incorrect.'})
+            if t.password == pwd:
+                request.session['secret'] = name+'random_stuff'+pwd
+                request.session['name'] = name
+                return JsonResponse({'error': False, 'msg': 'logging you in.'})
             else:
-                return JsonResponse({'error': True, 'msg': "Team name doesn\'t exists"})
+                return JsonResponse({'error': True, 'msg': 'Password is incorrect.'})
         else:
             return JsonResponse({'msg': 'Enter valid credentials'})
     else:
@@ -111,19 +102,20 @@ def dashboard(request):
     t = is_authenticated(request)
     if t:
         context = {}
-        if Slot.objects.get(title=t.slot).start <= timezone.now() and Slot.objects.get(title=t.slot).end >= timezone.now():
-            context['diff'] = (Slot.objects.get(title=t.slot).end - timezone.now()).total_seconds()
-            context['questions'] = Slot.objects.get(title=t.slot).question.all().order_by('score')
-            context['responses'] = Response.objects.filter(team=t)
+        s = Slot.objects.get(title=t.slot)
+        now = timezone.now()
+        print now, s.start, s.end
+        if s.start <= now and s.end >= now:
+            context['diff'] = (s.end - now).total_seconds()
+            context['questions'] = s.question.all().order_by('score')
             context['team'] = t
-            print context['responses']
             return render(request, "dashboard.html", context)
         else:
-            context['diff'] = (Slot.objects.get(title=t.slot).start - timezone.now()).total_seconds()
+            context['diff'] = (s.start - now).total_seconds()
             context['team'] = t
             return render(request, "waiting.html", context)
     else:
-        return redirect('home')
+        return redirect('/quriosity')
 
 def details(request):
     t = is_authenticated(request)
@@ -131,12 +123,15 @@ def details(request):
         if request.method == "POST":
             members = t.members.all()
             for i in xrange(len(members)):
-                members[i].phone=request.POST['phone'+str(i+1)]
-                members[i].college=request.POST['clg'+str(i+1)]
-                members[i].year=request.POST['year'+str(i+1)]
-                members[i].gender=request.POST['sex'+str(i+1)]
-                members[i].save()
-            return redirect('/quriosity/dashboard')
+                members[i].phone=request.POST['phone'+str(i+1)].strip()
+                members[i].college=request.POST['clg'+str(i+1)].strip()
+                members[i].year=request.POST['year'+str(i+1)].strip()
+                members[i].gender=request.POST['sex'+str(i+1)].strip()
+                try:
+                    members[i].save()
+                except Exception as e:
+                    return JsonResponse({'erorr': True, 'msg': e})
+            return redirect('dashboard')
         else:
             members = t.members.all()
             return render(request, "details.html", {'members': members, 'num': len(members)})
@@ -148,11 +143,61 @@ def question(request, qid):
     if t:
         if request.method == "POST":
             response = request.POST.get('ans', '')
+            num = request.POST.get('num', '')
             s = Slot.objects.get(title=t.slot)
-            if response and s.start <= timezone.now() and s.end >= timezone.now():
-                r, created = Response.objects.get_or_create(question_id=qid, team=t)
-                r.response = response
-                r.save()
+            now = timezone.now()
+            print num
+            if response and num and s.start <= now and s.end >= now:
+                try:
+                    if int(num) == 1:
+                        t.response1 = response
+                        t.save()
+                    elif int(num) == 2:
+                        t.response2 = response
+                        t.save()
+                    elif int(num) == 3:
+                        t.response3 = response
+                        t.save()
+                    elif int(num) == 4:
+                        t.response4 = response
+                        t.save()
+                    elif int(num) == 5:
+                        t.response5 = response
+                        t.save()
+                    elif int(num) == 6:
+                        t.response6 = response
+                        t.save()
+                    elif int(num) == 7:
+                        t.response7 = response
+                        t.save()
+                    elif int(num) == 8:
+                        t.response8 = response
+                        t.save()
+                    elif int(num) == 9:
+                        t.response9 = response
+                        t.save()
+                    elif int(num) == 10:
+                        t.response10 = response
+                        t.save()
+                    elif int(num) == 11:
+                        t.response11 = response
+                        t.save()
+                    elif int(num) == 12:
+                        t.response12 = response
+                        t.save()
+                    elif int(num) == 13:
+                        t.response13 = response
+                        t.save()
+                    elif int(num) == 14:
+                        t.response14 = response
+                        t.save()
+                    elif int(num) == 15:
+                        t.response15 = response
+                        t.save()
+                    else:
+                        return JsonResponse({'error': True, 'msg': 'Some Error occured'})
+                except Exception as e:
+                    return JsonResponse({'error': True, 'msg': 'Error in saving response. Contact support.'})
                 return JsonResponse({'error': False, 'msg': 'Your answer is recorded!'})
             else:
                 return JsonResponse({'error': True, 'msg': 'Enter valid response!'})
@@ -162,22 +207,20 @@ def question(request, qid):
         return JsonResponse({'error': True, 'msg': 'Unauthenticated request!'})
 
 def logout(request):
-    t = is_authenticated(request)
-    if t:
-        res = redirect('/quriosity')
-        res.set_cookie('GA001', '')
-        return res
-    else:
-        return redirect('/quriosity')
+    if is_authenticated(request):
+        del request.session['name']
+        del request.session['secret']
+    return redirect('/quriosity')
 
 def is_authenticated(request):
-    c = request.COOKIES.get('GA001', '')
-    try:
-        t = Team.objects.get(name=request.COOKIES.get('name', ''))
-        if hashlib.sha224(t.name+'random_stuff'+t.password).hexdigest() == c:
-            return t
-    except:
-        pass
+    name = request.session.get('name', '')
+    if name:
+        try:
+            t = Team.objects.get(name=name)
+            if t.name+'random_stuff'+t.password == request.session.get('secret',''):
+                return t
+        except:
+            pass
 
 def allu(request):
     key = request.GET.get('key', '')

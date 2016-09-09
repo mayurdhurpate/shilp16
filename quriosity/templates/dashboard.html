@@ -2,7 +2,7 @@
 {% block content %}
     <div class="wrapper">
         <div class="container">
-        {% csrf_token %}
+          {% csrf_token %}
           <div class="panel-group" id="accordion">
             {% for question in questions %}
               <div class="panel panel-default">
@@ -19,8 +19,8 @@
                     {{question.content | safe}}
                     <div class="row">
                       <div class="col-md-4">
-                          <input type="text" class="form-control" id="ans-{{question.id}}" placeholder="Answer" style="color: black;">
-                          <button class="btn btn-info btn-raised submit" id="{{question.id}}">Submit</button> 
+                          <input type="text" class="form-control" id="ans-{{question.id}}" data-num="{{forloop.counter}}" placeholder="Answer" style="color: black;" maxlength="15">
+                          <button class="btn btn-info btn-raised submit-q" id="{{question.id}}">Submit</button> 
                       </div>  
                     </div>
                   </div>
@@ -42,19 +42,53 @@
       return document.getElementsByName('csrfmiddlewaretoken')[0].value;
   }
 
-  setTimeout(function(){ location.reload(); }, ({{diff}}+2)*1000);
+  function countdown(minutes) {
+      var seconds = 60;
+      var mins = minutes
+      function tick() {
+          var counter = document.getElementById("counter");
+          var current_minutes = mins-1
+          seconds--;
+          counter.innerHTML = (current_minutes < 0 ? "0": current_minutes.toString()) + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+          if( seconds > 0 ) {
+              setTimeout(tick, 1000);
+          } else {
+              if(mins > 1){
+                  countdown(mins-1);           
+              }
+          }
+      }
+      tick();
+  }
+
+  setTimeout(function(){ window.location = "/quriosity/details"; }, ({{diff}}+2)*1000);
 
   $(document).ready(function(){
-    {% for res in responses %}
-    $('#ans-{{res.question.id}}').val({{res.response}});
-    {% endfor %}
+    countdown(Math.floor({{diff}}/60));
+    inputs = document.getElementsByTagName('input')
+    inputs[1].value = {{team.response1}}
+    inputs[2].value = {{team.response2}}
+    inputs[3].value = {{team.response3}}
+    inputs[4].value = {{team.response4}}
+    inputs[5].value = {{team.response5}}
+    inputs[6].value = {{team.response6}}
+    inputs[7].value = {{team.response7}}
+    inputs[8].value = {{team.response8}}
+    inputs[9].value = {{team.response9}}
+    inputs[10].value = {{team.response10}}
+    inputs[11].value = {{team.response11}}
+    inputs[12].value = {{team.response12}}
+    inputs[13].value = {{team.response13}}
+    inputs[14].value = {{team.response14}}
+    inputs[15].value = {{team.response15}}
   });
 
-  $(".submit").click(function(){
+  $(".submit-q").click(function(){
     data = {
       csrfmiddlewaretoken: getCSRF(),
       qid: this.id,
-      ans: $("#ans-"+this.id).val()
+      ans: $("#ans-"+this.id).val(),
+      num: $("#ans-"+this.id).attr('data-num')
     }
     var i = this.id;
     $('#'+i).toggle();
