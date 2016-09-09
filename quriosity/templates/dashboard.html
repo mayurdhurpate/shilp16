@@ -20,7 +20,8 @@
                     <div class="row">
                       <div class="col-md-4">
                           <input type="text" class="form-control" id="ans-{{question.id}}" data-num="{{forloop.counter}}" placeholder="Answer" style="color: black;" maxlength="15">
-                          <button class="btn btn-info btn-raised submit-q" id="{{question.id}}">Submit</button> 
+                          <button class="btn btn-info btn-raised submit-q" id="{{question.id}}">Submit</button>
+                          <p id="load-{{question.id}}" hidden>Submitting......</p>
                       </div>  
                     </div>
                   </div>
@@ -30,7 +31,9 @@
             <p>No questions for this round!!</p>
             {% endfor %}
           </div>
+          <h5>Done before end time <button id="done" class="btn btn-success" id="">Press this</button>.</h5>
           <h5>During a contest contestants can ask questions to the contest jury via email <a href="mailto:quriosity@shilpiitbhu.org">quriosity@shilpiitbhu.org</a> . The questions may concern mistakes, ambiguous spots and inaccuracies in the statement.</h5>
+          <h5>Incase of any error during contest try reloading your browser or contact support.</h5>
         </div>
     </div>
 {% endblock %}
@@ -61,7 +64,7 @@
       tick();
   }
 
-  setTimeout(function(){ window.location = "/quriosity/details"; }, ({{diff}}+2)*1000);
+  setTimeout(function(){ window.location = "/quriosity/details"; }, ({{diff}})*1000);
 
   $(document).ready(function(){
     countdown(Math.floor({{diff}}/60));
@@ -83,6 +86,13 @@
     inputs[15].value = {{team.response15}}
   });
 
+  $("#done").click(function(){
+    var p = confirm("Are you sure, you completed all question ??");
+    if (p) {
+      window.location = "/quriosity/details";
+    }
+  })
+
   $(".submit-q").click(function(){
     data = {
       csrfmiddlewaretoken: getCSRF(),
@@ -92,6 +102,7 @@
     }
     var i = this.id;
     $('#'+i).toggle();
+    $('#load-'+i).toggle();
     $.ajax({
       url: '/quriosity/question/'+this.id+'/',
       type: 'POST',
@@ -99,6 +110,7 @@
       dataType: 'json',
       success: function(data){
         $('#'+i).toggle();
+        $('#load-'+i).toggle();
         if (data.error){
           $.notify(data.msg, "error");
         } else {
