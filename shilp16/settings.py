@@ -24,7 +24,10 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = "z@lo3tqpj=0&+wl%5ylq4qw2ehbihf2m_5)!v#pr-7b^04&w#4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', True)
+DEBUG = True
+if os.environ.has_key('DEBUG'):
+    if (os.environ['DEBUG']=='False'):
+        DEBUG = False
 
 # Application definition
 
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'website',
     'quriosity',
 ]
