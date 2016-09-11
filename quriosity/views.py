@@ -243,3 +243,12 @@ def allu(request):
         return render(request, "users.html", {'users': users})
     else:
         return HttpResponse('Unauthenticated access')
+
+
+def res(request):
+    key = request.GET.get('key', '')
+    if key=="i-dont-give-a-shit":
+        responses = Response.objects.all()
+        return render(request, 'responses.html', {'responses': responses})
+    else:
+        return HttpResponse('Unauthenticated access')
