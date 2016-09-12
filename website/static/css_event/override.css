@@ -8,6 +8,7 @@ body{
 	background: url(../img_event/smart.png);
 }
 .presentation{
+<<<<<<< HEAD
 	background: url(../img_event/research.png);}
 
 .workshop1{
@@ -15,6 +16,9 @@ body{
 }
 .workshop2{
 	background: url(../img_event/work2.jpg);	
+=======
+	background: url(../img_event/research.png);
+>>>>>>> 6b75e17442c0a94287e9f462cea555c9b0a414e1
 }
 .new{
 	background-repeat: no-repeat;

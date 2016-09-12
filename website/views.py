@@ -17,11 +17,13 @@ def idp(request):
 def ppt(request):
     return render(request,"presentation.html",{},RequestContext(request))
 
+
 def workshop1(request):
     return render(request,"workshop1.html",{},RequestContext(request)) 
 
 def workshop2(request):
     return render(request,"workshop2.html",{},RequestContext(request))       
+
 
 def conclave(request):
     return render(request,"city.html",{},RequestContext(request))

@@ -21,8 +21,10 @@ urlpatterns = [
     url(r'^ca$', views.ca, name='ca'),
     url(r'^idp$', views.idp, name='idp'),
     url(r'^ppt$', views.ppt, name='ppt'),
+
     url(r'^workshop1$', views.workshop1, name='workshop1'),
     url(r'^workshop2$', views.workshop2, name='workshop2'),
+
     url(r'^register$', views.register, name='register'),
     url(r'^conclave$', views.conclave, name='conclave'),
     url(r'^regsubmit/$', views.regsubmit, name='regsubmit'),

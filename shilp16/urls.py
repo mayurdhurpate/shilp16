@@ -22,3 +22,4 @@ urlpatterns = [
     url(r'^quriosity/', include('quriosity.urls')),
     url(r'^', include('website.urls')),
 ]
+
