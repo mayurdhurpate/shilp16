@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(CAUser)
 admin.site.register(PPTUser)
 admin.site.register(User)
+admin.site.register(WorkUser)

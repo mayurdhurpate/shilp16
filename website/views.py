@@ -46,6 +46,17 @@ def casubmit(request):
         return HttpResponse('Your response have been recorded.')
     return HttpResponse('Authentication failed.')
 
+def worksubmit(request):
+    if request.method=='POST':
+        print(request.POST)
+        u=WorkUser.objects.create(name=request.POST['author'],
+                                    designation=request.POST['designation'],
+                                    email=request.POST['email'],
+                                    phone=request.POST['phone'],
+                                    college=request.POST['college'])
+        return HttpResponse('Your response have been recorded.')
+    return HttpResponse('Authentication failed.')    
+
 def pptsubmit(request):
     if request.method=='POST':
         u=PPTUser.objects.create(title=request.POST['title'],

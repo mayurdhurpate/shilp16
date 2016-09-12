@@ -103,7 +103,7 @@
                 <h3></h3>
 
                 <h1> Data Analysis with R</h1><br>
-                <div style="font-size:30px; color:white" ><em></em></div>>
+                <div style="font-size:45px; color:white" ><em>Fees: <strong>&#8377;1000</strong>/- only</em></div>
 
                 <h2 style="color:white;"></h2>
 
@@ -121,12 +121,16 @@
     <section>
         <div class="container">
             
-                <div >  
+                <div >   
+                    <ul class="nav nav-pills">
+                      <li class="active"><a data-toggle="tab" href="#menu1">Introduction</a></li>
+                     <li><a data-toggle="tab" href="#menu2">Registration</a></li>
+                 
                     
                 
      <div class="tab-content">
     
-    <div  class="tab-pane fade in active">
+    <div id="menu1"  class="tab-pane fade in active">
       <div style="padding-bottom:95px;">
       <div style="padding-top:45px;">
       <blockquote class="text-left" style="color:#dc4e4e; font-size:15px;"><i><b>"</b>Data Analytics refers to the process of collecting, organizing and analyzing large sets of data to discover patterns and other useful information from the data which can help the organizations <b>"</b></i></blockquote>
@@ -146,60 +150,43 @@ With this workshop one will learn how to prepare data for analysis ,compute vari
 
 
   
-    <div id="menu4" class="tab-pane fade">
+    <div id="menu2" class="tab-pane fade"><br>
       
                       <div style="text-align:center">
   <h1> REGISTRATION FORM</h1></div><br>
-   <form action="/pptsubmit/" method="post"> {% csrf_token %}
+   <form action="/worksubmit/" method="post" style="padding-left:270px;padding-right:270px;"> {% csrf_token %}
   
   <div class="form-group">
   
 
-   <div class="form-group">
-    <label for="exampleInputpaper">Title of Paper</label>
-    <input type="name" class="form-control" id="exampleInputpaper" name="title" placeholder="Title of Paper">
-     </div>
-    <div class="form-inline">
+    
     <div class="form-group">
-    <label for="exampleInputName">Name of 1st Author </label>
-    <input type="name" class="form-control" id="exampleInputName" name="author" aria-describedby="emailHelp" placeholder="Name of 1st Author">
+    
+    <input type="name" class="form-control" id="exampleInputName" name="name" aria-describedby="emailHelp" placeholder="Name ">
     </div>
     <div class="form-group">
-    <label for="exampleInputPassword1">Designation</label>
+    
     <input type="name" class="form-control" id="exampleInputPassword1" name="designation" placeholder="Designation">
   </div>
      <div class="form-group">
-    <label for="exampleInputName">College/University</label>
+    
     <input type="name" class="form-control" id="exampleInputName" name="college" aria-describedby="emailHelp" placeholder="College/University">
     </div>
-
-       </div><br>
-
-
-  <div class="form-inline">
+    <div class="form-group">
+    <input type="Email" class="form-control" name="email" id="exampleInputPassword1" placeholder="Email Address"></div>
+    <div class="form-group">
     
-     <div class="row">
-              <div class="col-md-6">
-
-  <div class="form-group">
-    <label for="exampleInputPassword1">Email Address</label>
-    <input type="Email" class="form-control" name="email" id="exampleInputPassword1" placeholder="Email Address"></div></div>
-     
-               <div class="col-md-6">
-
-
-  <div class="form-group">
-    <label for="exampleInputPassword1">Mobile Number</label>
     <input type="number" class="form-control" name="phone" id="exampleInputPassword1" placeholder="Mobile Number">
-     </div></div></div>
-  </div><br>
-
-
-     <div class="form-group">
-    <label for="exampleInputpaper">Name of Co-Authors </label>
-    <input  class="form-control" id="exampleInputpaper" name="coauthor" placeholder="Coauthor 1, Coauthor2, coauthor3">
      </div>
-      <div style="padding-left:500px;"><button type="submit" class="btn btn-primary">Submit</button></div>
+
+       <br>
+
+
+ <br>
+
+
+     
+      <div style="padding-left:300px;"><button type="submit" class="btn btn-primary">Submit</button></div>
 
   </div></form></div>
 
