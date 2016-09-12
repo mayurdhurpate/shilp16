@@ -1,0 +1,18 @@
+<table>
+<tr>
+    <th>team_id</th>
+    <th>team_name</th>
+    <th>question_id</th>
+    <th>question_name</th>
+    <th>response</th>
+</tr>
+{% for response in responses %}
+<tr>
+    <td>{{response.team.id}}</td>
+    <td>{{response.team.name}}</td>
+    <td>{{response.question.id}}</td>
+    <td>{{response.question.title}}</td>
+    <td>{{response.response}}</td>
+</tr>
+{% endfor %}
+</table>

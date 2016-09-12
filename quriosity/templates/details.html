@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="background-color: #eee">
+<form method="post">
+    {% csrf_token %}
+    <h3>Members details</h3>
+    {% for mem in members %}
+    <div class="panel panel-success">
+      <div class="panel-body">
+        Member {{forloop.counter}} details
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group label-floating">
+                <label class="control-label">Member {{forloop.counter}} Name</label>
+                <input type="text" class="form-control" value="{{mem.name}}" name="name{{forloop.counter}}" disabled>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group label-floating">
+                <label class="control-label">Member {{forloop.counter}} Email</label>
+                <input type="email" class="form-control" value="{{mem.email}}" name="email{{forloop.counter}}" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group label-floating">
+                <label class="control-label">Member {{forloop.counter}} Phone</label>
+                <input type="phone" class="form-control" value="{{mem.phone}}" name="phone{{forloop.counter}}" maxlength="13" required>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group label-floating">
+                <label class="control-label">Member {{forloop.counter}} College</label>
+                <input type="text" class="form-control" value="{{mem.college}}" name="clg{{forloop.counter}}" maxlength="50" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group label-floating">
+                <label class="control-label">Member {{forloop.counter}} Year (1/2/3/4/5/None)</label>
+                <input type="text" class="form-control" value="{{mem.year}}" name="year{{forloop.counter}}" maxlength="4" required>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group label-floating">
+                <label class="control-label">Member {{forloop.counter}} Gender (M/F)</label>
+                <input type="text" class="form-control" value="{{mem.gender}}" name="sex{{forloop.counter}}" maxlength="4" required>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {% empty %}
+    <p>No members.</p>
+    {% endfor %}
+    <button class="btn btn-success btn-lg" type="submit">Submit Details</button>
+</form>
+</div>
+{% endblock %}

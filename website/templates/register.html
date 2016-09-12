@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paper presentation event in organized with an aim to promote the ideas and research in the field of Civil Engineering. We invite all enthusiastic scholars to pen down their ideas and present their valuable work and in this event.">
+    <meta name="author" content="Yogesh Naik , kushagra Agrawal , Shirali Prajapati">
+    <title>Registration</title>
+                <link rel="shortcut icon" href="/static/favicon.ico">
+
+    <link rel="stylesheet" href="/static/css_event/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css_event/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css_event/style.css">
+	<link rel="stylesheet" href="/static/css_event/override.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+      <script src="/static/js/html5shiv.js"></script>
+      <script src="/static/js/respond.min.js"></script>
+    <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-81704700-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body>
+    <!-- ====================================================
+	header section -->
+    <header class="top-header new-header">
+        <div class="container">
+
+            <div class="row header-row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-default">
+                        <a href="/"><img src="/static/img_event/logo.png" alt="" class="logo"></a>
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                           <div class="collapse navigator navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                <ul class="nav navbar-nav  navbar-right">
+                                    <li><a href="/">Home</a></li>
+									<li>
+									  <a id="events" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+										Events
+										<span class="caret"></span>
+									  </a>
+
+									  <ul class="dropdown-menu" aria-labelledby="events">
+										<li><a href="/idp">Industry Defined Problems</a></li>
+										<li><a href="/ppt">Paper Presentation</a></li>
+										<li><a href="/conclave">River Rejuvenation Conclave</a></li>
+									</li>
+									</ul>
+									<li>
+									  <a id="competitions" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+										Competitions
+										<span class="caret"></span>
+									  </a>
+
+									  <ul class="dropdown-menu" aria-labelledby="competitions">
+                                        <li><a href="/">Torque</a></li>
+                                        <li><a href="/">Roll On</a></li>
+										<li><a href="/">Seismica</a></li>
+										<li><a href="/">Enviro</a></li>
+										<li><a href="/">Building Innovation Model</a></li>
+										<li><a href="/">Quriosity</a></li>
+									  </ul>
+									</li>
+									<li>
+									  <a id="facilities" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+										Facilities
+										<span class="caret"></span>
+									  </a>
+
+									  <ul class="dropdown-menu" aria-labelledby="facilities">
+										<li><a href="/">Hospitality</a></li>
+										
+										<li><a href="/">Workshops</a></li>
+									  </ul>
+									</li>
+									
+									
+								</ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <!-- about section -->
+    
+
+
+
+ <div class="container"> <div style="padding-top:200px;">
+
+ <form action="/regsubmit/" method="post"> {% csrf_token %}
+  
+     
+            
+                
+                <div style="text-align:center">
+  <h1> REGISTRATION FORM</h1></div><br>
+   <div>
+   <div class="form-group">
+    <label for="exampleSelect1">Select Event</label>
+    <select class="form-control" id="exampleSelect1" name="event"  >
+      <option value="" disabled selected hidden>Select Event</option>
+      <option value="RIVER REJUVENATION CONCLAVE">River Rejuvunation Conclave</option>
+      <option value="IDP">Industry Defined Problem</option>
+      <option value="Torque">Torque</option>
+      <option value="Roll On">Roll On</option>
+      <option value="Building Inovation Model">Building Innovation Model</option>
+      <option value="Enviro">Enviro</option>
+      <option value="Seismica">Impacto</option> 
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-xs-2 control-label"  for="exampleInputEmail1">Team Name</label>
+    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Team Name" name="teamname">
+    </div>
+    </div>
+    </div> 
+  
+    <br>
+  <div class="form-inline">
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Team Leader</label>
+    <input type="Name" class="form-control" id="exampleInputPassword1" placeholder="Team leader" name="teamleader">
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Email Address</label>
+    <input type="Email" class="form-control" id="exampleInputPassword1" placeholder="Email Address" name="Email">
+     
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Mobile Number</label>
+    <input type="Number" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number" name="mob_no">
+     
+  </div>
+  </div>
+
+  <br><br>
+
+  <br>
+  <div class="row">
+  <div class="col-md-6">
+  
+  <div class="form-group">
+    <label class="col-xs-2 control-label"  for="exampleInputCollege">College</label>
+    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="College" name="college">
+    </div>
+
+  </div>
+  <div class="col-md-6">
+  <div class="form-group">
+  <label for="sel1">Year</label>
+  <select class="form-control" id="sel1" name="year" placeholder="Year">
+    <option value="" disabled selected hidden >Select Year</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+</div>
+    
+
+  </div>
+  </div>  
+
+  <br>
+
+
+  <div class="form-inline">
+    <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Team Member 1</label>
+    <input type="Name" class="form-control" id="exampleInputPassword1" placeholder="Team Member 1" name="tmem1">
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Email Address 1</label>
+    <input type="Email" class="form-control" id="exampleInputPassword1" placeholder="Email Address 1" name="email1">
+     
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Mobile Number 1</label>
+    <input type="Number" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number 1" name="mob1">
+
+    </div>    
+
+             <br><br>
+        
+    <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Team Member 2</label>
+    <input type="Name" class="form-control" id="exampleInputPassword1" placeholder="Team Member 2" name="tmem2">
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Email Address 2</label>
+    <input type="Name" class="form-control" id="exampleInputPassword1" placeholder="Email Address 2" name="email2">
+     
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Mobile Number 2</label>
+    <input type="Number" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number 2" name="mob2">
+    </div>
+
+    <br><br>
+
+   
+    <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Team Member 3</label>
+    <input type="Name" class="form-control" id="exampleInputPassword1" placeholder="Team Member 3" name="tmem3">
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Email Address 3</label>
+    <input type="Email" class="form-control" id="exampleInputPassword1" placeholder="Email Address 3" name="email3">
+     
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Mobile Number 3</label>
+    <input type="Number" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number 3" name="mob3">
+  </div>  
+    <br><br>
+
+     <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Team Member 4</label>
+    <input type="Name" class="form-control" id="exampleInputPassword1" placeholder="Team Member 3" name="tmem3">
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Email Address 4</label>
+    <input type="Email" class="form-control" id="exampleInputPassword1" placeholder="Email Address 3" name="email3">
+     
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Mobile Number 4</label>
+    <input type="Number" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number 3" name="mob3">
+
+     </div>
+
+     <br><br>
+
+    <!--
+
+      <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Team Member 4</label>
+    <input type="Name" class="form-control" id="exampleInputPassword1" placeholder="Team Member 4" name="tmem4">
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Email Address 4</label>
+    <input type="Email" class="form-control" id="exampleInputPassword1" placeholder="Email Address 4" name="email4">
+     
+  </div>
+  <div class="form-group; col-md-4">
+    <label for="exampleInputPassword1">Mobile Number 4</label>
+    <input type="Number" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number 4" name="mob4">
+
+     </div>
+
+     <br><br>
+
+    <div class="form-group; col-md-4">
+        <label for="exampleInputPassword1">Team Member 5</label>
+    <input type="Name" class="form-control" id="exampleInputPassword1" placeholder="Team Member 5" name="tmem5">
+  </div>
+  <div class="form-group; col-md-4">
+      <label for="exampleInputPassword1">Email Address 5</label>
+    <input type="Email" class="form-control" id="exampleInputPassword1" placeholder="Email Address 5" name="email5">
+     
+  </div>
+  <div class="form-group; col-md-4">
+      <label for="exampleInputPassword1">Mobile Number 5</label>
+    <input type="Number" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number 5" name="mob5">
+
+     </div>
+      -->
+
+     </div>
+      <br>
+     
+  
+  <div class="form-group">
+    <label for="exampleTextarea">Any Query</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3" name="query"></textarea>
+  </div>
+     
+     <br><br>
+   <div style="padding-left:500px;"><button type="submit" class="btn btn-primary">Submit</button></div>
+ </form>
+
+</div>
+ </div>
+</div> 
+    <br><br>
+
+    <footer class="footer">
+	<div class="row footer-text">
+		<div class="col-lg-4 col-md-4 col-sm-4">
+		<p>Shilp'16</p>
+		<p><i class="fa fa-map-marker"></i>  Department of Civil Engineering</p>
+		<p>  Indian Institute of Technology (BHU)</p>
+		<p>  Varanasi (U.P.) </p>
+		<p>  India </p>
+		</div>
+		<div class="col-lg-4  col-md-4 col-sm-4">
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+		<p></p>
+        <p><i class="fa fa-phone"></i>  +91991-957-5367 </p>
+        <p><a href="mailto:shilp@iitbhu.ac.in?Subject=Hello%20again" target="_top"><i class="fa fa-envelope"></i> shilp@iitbhu.ac.in</a> </p>
+        <p><a href="http://www.shilpiitbhu.org/"><i class="fa fa-globe"></i>   shilpiitbhu.org</a> </p>
+        <p><a href="https://www.facebook.com/shilpiitbhu/?fref=ts&ref=br_tf" class="social-btn" target="_blank"><i class="fa fa-facebook"></i> facebook.com/shilpiitbhu</a> </p>
+        <p><a href="http://www.iitbhu.ac.in" target="_blank"><i class="fa fa-mortar-board"></i>  IIT-BHU Official Site</a> </p>
+		</div>
+	</div>
+    </footer>
+
+    <!-- script tags
+	============================================================= -->
+    <script src="/static/js_event/jquery-2.1.1.js"></script>
+    <script src="/static/js_event/smoothscroll.js"></script>
+    <script src="/static/js_event/bootstrap.min.js"></script>
+    <script src="/static/js_event/custom.js"></script>
+</body>
+
+</html>

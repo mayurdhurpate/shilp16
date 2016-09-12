@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <link rel="stylesheet" href="/static/css/flipclock.css">
+    <div class="container text-center" style="margin: auto">
+        {% if diff >= 0 %}
+        <h1 class="title">Slot {{team.slot}} starts in </h1>
+        <div class="timer"></div>
+        <h2>Please read the rules and help section for more details.</h2>
+        {% else %}
+        <h1 class="title">Round {{team.slot}} is over.</h1>
+        <h5>Result will be declared soon and will be mailed to you.</h5>
+        <h5>For further details contact us at <a href="mailto:quriosity@shilpiitbhu.org">quriosity@shilpiitbhu.org</a>.</h5>
+        <h3>Make sure you completed your <a href="/quriosity/details/">profile details</a> to be eligible for Second Round</h3>
+        {% endif %}
+    </div>    
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/flipclock.min.js"></script>
+<script>
+    $(document).ready(function(){
+        if ({{diff}} > 0){
+            var clock = $('.timer').FlipClock({{diff}}, {
+                clockFace: 'DailyCounter',
+                countdown: true
+            });
+
+            setTimeout(function(){ location.reload(); }, ({{diff}}+2)*1000);
+        }
+    });
+</script>
+{% endblock %}

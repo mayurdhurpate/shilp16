@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="wrapper">
+        <div class="container">
+        <h5>Time increased by 15 min.</h5>
+          {% csrf_token %}
+          <div class="panel-group" id="accordion">
+            {% for question in questions %}
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{forloop.counter}}">
+                      {{question.title}}
+                    </a>
+                    <span class="score" style="float: right;">Score: {{question.score}}</span>
+                  </h4>
+                </div>
+                <div id="collapse{{forloop.counter}}" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    {{question.content | safe}}
+                    <div class="row">
+                      <div class="col-md-4">
+                          <input type="text" class="form-control" id="ans-{{question.id}}" data-num="{{forloop.counter}}" placeholder="Answer" style="color: black;" maxlength="15">
+                          <button class="btn btn-info btn-raised submit-q" id="{{question.id}}">Submit</button>
+                          <p id="load-{{question.id}}" hidden>Submitting......</p>
+                      </div>  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% empty %}
+            <p>No questions for this round!!</p>
+            {% endfor %}
+          </div>
+          <h5>Done before end time <button id="done" class="btn btn-success" id="">Press this</button>.</h5>
+          <h5>During a contest contestants can ask questions to the contest jury via email <a href="mailto:quriosity@shilpiitbhu.org">quriosity@shilpiitbhu.org</a> . The questions may concern mistakes, ambiguous spots and inaccuracies in the statement.</h5>
+          <h5>Incase of any error during contest try reloading your browser or contact support.</h5>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/notify.min.js"></script>
+<script>
+  function getCSRF(){
+      return document.getElementsByName('csrfmiddlewaretoken')[0].value;
+  }
+
+  function countdown(minutes) {
+      var seconds = 60;
+      var mins = minutes
+      function tick() {
+          var counter = document.getElementById("counter");
+          var current_minutes = mins-1
+          seconds--;
+          counter.innerHTML = (current_minutes < 0 ? "0": current_minutes.toString()) + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+          if( seconds > 0 ) {
+              setTimeout(tick, 1000);
+          } else {
+              if(mins > 1){
+                  countdown(mins-1);           
+              }
+          }
+      }
+      tick();
+  }
+
+  setTimeout(function(){ window.location = "/quriosity/details"; }, ({{diff}})*1000);
+
+  $(document).ready(function(){
+    countdown(Math.floor({{diff}}/60));
+    inputs = document.getElementsByTagName('input')
+    inputs[1].value = {{team.response1}}
+    inputs[2].value = {{team.response2}}
+    inputs[3].value = {{team.response3}}
+    inputs[4].value = {{team.response4}}
+    inputs[5].value = {{team.response5}}
+    inputs[6].value = {{team.response6}}
+    inputs[7].value = {{team.response7}}
+    inputs[8].value = {{team.response8}}
+    inputs[9].value = {{team.response9}}
+    inputs[10].value = {{team.response10}}
+    inputs[11].value = {{team.response11}}
+    inputs[12].value = {{team.response12}}
+    inputs[13].value = {{team.response13}}
+    inputs[14].value = {{team.response14}}
+    inputs[15].value = {{team.response15}}
+  });
+
+  $("#done").click(function(){
+    var p = confirm("Are you sure, you completed all question ??");
+    if (p) {
+      window.location = "/quriosity/details";
+    }
+  })
+
+  $(".submit-q").click(function(){
+    data = {
+      csrfmiddlewaretoken: getCSRF(),
+      qid: this.id,
+      ans: $("#ans-"+this.id).val(),
+      num: $("#ans-"+this.id).attr('data-num')
+    }
+    var i = this.id;
+    $('#'+i).toggle();
+    $('#load-'+i).toggle();
+    $.ajax({
+      url: '/quriosity/question/'+this.id+'/',
+      type: 'POST',
+      data: data,
+      dataType: 'json',
+      success: function(data){
+        $('#'+i).toggle();
+        $('#load-'+i).toggle();
+        if (data.error){
+          $.notify(data.msg, "error");
+        } else {
+          $.notify(data.msg, "info");
+        }
+      }
+    });
+  });
+</script>
+{% endblock %}

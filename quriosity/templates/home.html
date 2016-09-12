@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="theme-color" content="#999999" />
+    <title>Quriosity</title>
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/css/material-kit.css" rel="stylesheet"/>
+    <style>
+        @font-face {
+            font-family: titleFont;
+            src: url('/static/font/title-font.ttf');
+        }
+
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            font-size: 60px;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+
+        canvas {
+          display: block;
+          vertical-align: top;
+        }
+
+        #particles-js {
+          background: transparent;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-image: url('/static/img/background.jpg');
+          background-size: cover;
+        }
+    </style>
+</head>
+<body class="landing-page">
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://shilpiitbhu.org/" style="font-family: titleFont;"><img width="70" src="/static/img/shilp-logo.png" alt="Shilp logo"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navigation-example">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#contacts">
+                            <i class="material-icons">email</i>Contacts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#chat">
+                            <i class="material-icons">chat</i>Chat
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#faqs">
+                            <i class="material-icons">help</i> FAQ's
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/events/978303445614068/" class="btn btn-simple btn-white btn-just-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <button class="btn btn-danger btn-raised" data-toggle="modal" data-target="#loginModal">
+                            Login
+                        </button>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="particles-js"></div>
+    <div class="wrapper">
+        <div class="header header-filter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" style="z-index: 9999;">
+                        <h1 class="title" style="font-family: titleFont; font-size: 6vw;">Quriosity</h1>
+                        <h4>A Nationwide Logical Reasoning Competition</h4>
+                        <h3><i>"Millions saw the apple fall,<br> but Newton asked why."</i></h3>
+                        <br /><!-- 
+                        <button class="btn btn-danger btn-raised btn-lg" data-toggle="modal" data-target="#registerModal">
+                            Register
+                        </button>
+                        <button class="btn btn-info btn-raised btn-lg" data-toggle="modal" data-target="#loginModal">
+                            Login
+                        </button> -->
+                        <h4>For Results, Stay tuned to our <a class="btn btn-info" href="https://www.facebook.com/events/978303445614068/">facebook page</a></h4>
+                    </div>
+                    <div class="col-md-6" style="z-index: 9999;">
+                      <div class="type-wrap">
+                          <div id="typed-strings">
+                              <p>Prizes Worth <em>Rs.15,000</em>.</p>
+                              <p>Internship Opportunities...</p>
+                          </div>
+                          <span id="typed" style="white-space:pre; font-family: 'Amatic SC'; font-size: 50px"></span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Register -->
+        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="registerModalLabel">Register</h4>
+              </div>
+              <div class="modal-body">
+                <div class="card card-signup">
+                    <div class="content">
+                        {% csrf_token %}
+                        <div class="reg" id="reg1">
+                          <div class="input-group">
+                              <span class="input-group-addon">
+                                  <i class="material-icons">person</i>
+                              </span>
+                              <input type="text" id="name" class="form-control" placeholder="Team Name..." required>
+                          </div>
+
+                          <div class="input-group">
+                              <span class="input-group-addon">
+                                  <i class="material-icons">lock</i>
+                              </span>
+                              <input type="password" id="pwd" class="form-control" placeholder="Team Password..." required>
+                          </div>
+                            <div class="input-group">
+                                <label for="slot">Slot:</label>
+                                <select class="form-control" id="slot">
+                                    <!-- <option value="1">Slot 1: 8 September 2016; 10:00PM-11:00PM</option> -->
+                                    <option value="2">Slot 2: 9 September 2016; 09:00PM-10:00PM</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="mem">No of members:</label>
+                                <select class="form-control" id="mem">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="reg" id="reg2" >
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">face</i>
+                                </span>
+                                <input type="text" id="signup-name1" class="form-control" placeholder="Team Member 1 Name..." required>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">email</i>
+                                </span>
+                                <input type="text" id="signup-email1" class="form-control" placeholder="Team Member 1 Email..." required>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">phone</i>
+                                </span>
+                                <input type="text" id="signup-phone1" class="form-control" placeholder="Team Member 1 Phone..." required>
+                            </div>
+                        </div>
+                        <div class="reg" id="reg3" hidden>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">face</i>
+                                </span>
+                                <input type="text" id="signup-name2" class="form-control" placeholder="Team Member 2 Name...">
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">email</i>
+                                </span>
+                                <input type="text" id="signup-email2" class="form-control" placeholder="Team Member 2 Email...">
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">phone</i>
+                                </span>
+                                <input type="text" id="signup-phone2" class="form-control" placeholder="Team Member 2 Phone...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer text-center">
+                        <button class="btn btn-simple btn-success btn-lg" id="signup-submit">Register</button>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-info btn-simple">Forgot Password</button> -->
+                <!-- <button type="button" class="btn btn-info btn-simple">Already registered</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Login -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="loginModalLabel">Login</h4>
+              </div>
+              <div class="modal-body">
+                <div class="card card-signup">
+                    <!-- <form class="form"> -->
+                        <!-- {% csrf_token %} -->
+                        <div class="content">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">face</i>
+                                </span>
+                                <input type="text" id="login-name" class="form-control" placeholder="Team Name..." required>
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">lock_outline</i>
+                                </span>
+                                <input type="password" id="login-pwd" placeholder="Password..." class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="footer text-center">
+                            <button id="login-submit" class="btn btn-simple btn-primary btn-lg">Login</button>
+                        </div>
+                    <!-- </form> -->
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-info btn-simple">Forgot Password</button> -->
+                <!-- <button type="button" class="btn btn-info btn-simple">Don't have account!</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="main main-raised">
+            <div class="container">
+                <div class="section text-center section-landing">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <h2 class="title">Introduction</h2>
+                            <h5 class="description">Quriosity at Shilp'16 is for those who are passionate in their endeavours and have the analytical mojo in them. A highly celebrated national level puzzle solving and logical reasoning contest, it gives you an opportunity to be a part of notable companies and start-ups, as <em>INTERNS</em>, recruiting directly based on your ranking in the event. So get ready to exercise all your wits, communication skills, reasoning and professional temperament as you battle it out to reach the top of the grid in <em>QURIOSITY'16</em>.</h5>
+                        </div>
+                    </div>
+                    <div class="features">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <div class="icon icon-primary">
+                                        <i class="material-icons">attach_money</i>
+                                    </div>
+                                    <h4 class="info-title">Prizes worth ₹ 15,000</h4>
+                                    <p>Prizes worth 15K to top 3 performers. Also, Goodies and Certificates to top performers.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <div class="icon icon-success">
+                                        <i class="material-icons">school</i>
+                                    </div>
+                                    <h4 class="info-title">Internship Opportunities</h4>
+                                    <p>Jumpstart your career by embarking on a professional internship, develop your skills and gain relevant experiences in Hot-Shot Startups.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <div class="icon icon-danger">
+                                        <i class="material-icons">people</i>
+                                    </div>
+                                    <h4 class="info-title">2,000+ Individual Participation</h4>
+                                    <p>More than 2,000 individual participation from all over the nation last year.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <h2 class="title">Event Structure</h2>
+                            <h5 class="description" style="text-align: left;">
+                              Quriosity will consist of two rounds:<br>
+                              <ul>
+                                <li>
+                                  <b>Online round:</b>
+                                    <ol>
+                                        <li>The online round will consist of logical reasoning puzzles.</li>
+                                        <li>The duration of test will be of 1 hour comprising of 15 questions of varying difficulties and marking scheme.</li>
+                                        <li>The test will be held in two slots:
+                                           <ol>
+                                             <li>The first slot will be from 10:00 pm to 11:00 pm on 8th September, 2016.</li>
+                                             <li>The second slot will be from 9:00 pm to 10:00 pm on 9th September, 2016.</li>
+                                           </ol>
+                                        </li>
+                                        <li>Each team consisting of maximum of two members can attempt the test in anyone of the two slots only.</li>
+                                        <li>Top 10 percentile teams shall be selected for the onsite round, which will be held in IIT (BHU) Varanasi Campus.</li>
+                                        <li>All the top performing teams of online round will be awarded goodies irrespective of their participation in on-site round.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                  <b>On-site round:</b>
+                                      <ol>
+                                        <li>The structure of the onsite round to be held during Shilp’16 at IIT (BHU) Varanasi Campus, will be announced at a later stage.</li>
+                                      </ol>
+                                </li>
+                              </ul>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section text-center" id="contacts">
+                    <h2 class="title">Contacts</h2>
+                    <div class="team">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="team-player">
+                                    <h4 class="title">Sanskar Modi <br />
+                                        <small class="text-muted">Coordinator</small>
+                                    </h4>
+                                    <p class="description">
+                                        <i class="fa fa-envelope"></i> : <a href="mailto:sanskar.modi.civ14@iitbhu.ac.in">sanskar.modi.civ14@iitbhu.ac.in</a><br>
+                                        <i class="fa fa-phone"></i> : <a href="tel:7839346650">+91-7839346650</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="team-player">
+                                    <h4 class="title">Kumar Anunay <br />
+                                        <small class="text-muted">Coordinator</small>
+                                    </h4>
+                                    <p class="description">
+                                        <p class="description">
+                                            <i class="fa fa-envelope"></i> : <a href="mailto:kumar.anunay.civ14@iitbhu.ac.in">kumar.anunay.civ14@iitbhu.ac.in</a><br>
+                                            <i class="fa fa-phone"></i> : <a href="tel:9935009220">+91-9935009220</a>
+                                        </p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section text-center" id="faqs">
+                    <h2 class="title">FAQ's</h2>
+
+                    <div class="col-md-8 col-md-offset-2">
+                        <h5 class="description" style="text-align: left;">
+                          <ul>
+                              <li>
+                                  <b>I didn't got confirmation mail ?</b>
+                                  <p>Sorry for inconvenience but due to some unexpected error, we're unable to send confirmation mails but they are not required for participating in event.</p>
+                              </li>
+                              <li>
+                                  <b>Can team members be from two different colleges/year ?</b>
+                                  <p>Yes</p>
+                              </li>
+                              <li>
+                                  <b>What is the last date of registration ?</b>
+                                  <p>You can register until both rounds are over i.e 9:00 PM, 9th September 2016</p>
+                              </li>
+                              <li>
+                                  <b>I want to change my slot OR I want to change my team.</b>
+                                  <p>Mail your problem to us at <a href="mailto:quriosity@shilpiitbhu.org">quriosity@shilpiitbhu.org</a>, we will resolve it quickly.</p>
+                              </li>
+                          </ul>
+                          <p>For more queries mail us at <a href="mailto:quriosity@shilpiitbhu.org">quriosity@shilpiitbhu.org</a>.</p>
+                        </h5>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="section landing-section" id="chat">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <h2 class="text-center title">Got A Question ??</h2>
+                            <h4 class="text-center description">First check the <a href="#faqs">FAQ's section</a>. Still got a question message us, We will be happy to help you.</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Your Name</label>
+                                        <input type="text" id="help-name" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Your Email</label>
+                                        <input type="email" id="help-email" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label">Your Messge</label>
+                                <textarea id="help-msg" class="form-control" rows="4" required></textarea>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 col-md-offset-4 text-center">
+                                    <button id="help-submit" class="btn btn-primary btn-raised">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Quriosity'16
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Contacts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               Shilp'16
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               IIT BHU, Varanasi
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                    &copy; 2016, made with <i class="fa fa-heart heart"></i> by Quriosity Team
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="/static/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/static/js/material.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/static/js/material-kit.js" type="text/javascript"></script>
+    <script src="/static/js/typed.min.js" type="text/javascript"></script>
+    <script src="/static/js/notify.min.js" type="text/javascript"></script>
+    <script src="/static/js/main.js" type="text/javascript"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-83626713-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    <script>
+        var path = '/static/particles.json';
+        if ($(window).width() < 768){
+            path = '/static/particles-small.json';
+        }
+        particlesJS.load('particles-js', path);
+    </script>
+</html>
