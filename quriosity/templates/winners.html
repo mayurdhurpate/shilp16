@@ -1,0 +1,14 @@
+<table>
+    {% for winner in winners %}
+    <tr>
+        <td>{{winner.id}}</td>
+        <td>{{winner.name}}</td>
+        <td>{{score}}</td>
+        {% for member in winner.members.all %}
+            <td>{{member.name}}</td>
+            <td>{{member.email}}</td>
+            <td>{{member.phone}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
