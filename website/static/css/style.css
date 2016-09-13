@@ -43,7 +43,7 @@ body a:hover{
 .banner-right {
     float: right;
     width: 50%;
-    background: url(../images/a.jpg)no-repeat 0 -98px;
+    
     min-height: 799px;
 	-webkit-background-size: cover;
     background-size: cover;
