@@ -1089,7 +1089,7 @@ Waypoints
 .img-circle {
     border-radius: 50%;
 }
-IMG.displayed {
+.displayed {
     display: block;
     margin-left: auto;
     margin-right: auto }
