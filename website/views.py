@@ -49,7 +49,7 @@ def casubmit(request):
 def worksubmit(request):
     if request.method=='POST':
         print(request.POST)
-        u=WorkUser.objects.create(name=request.POST['author'],
+        u=WorkUser.objects.create(name=request.POST['name'],
                                     designation=request.POST['designation'],
                                     email=request.POST['email'],
                                     phone=request.POST['phone'],
