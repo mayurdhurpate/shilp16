@@ -22,8 +22,8 @@ urlpatterns = [
     url(r'^idp$', views.idp, name='idp'),
     url(r'^ppt$', views.ppt, name='ppt'),
 
-    url(r'^workshop1$', views.workshop1, name='workshop1'),
-    url(r'^workshop2$', views.workshop2, name='workshop2'),
+    url(r'^Data-Analytics$', views.workshop1, name='Data-Analytics'),
+    url(r'^Earthquake-Resistance-Structure$', views.workshop2, name='Earthquake-Resistance-Structure'),
 
     url(r'^register$', views.register, name='register'),
     url(r'^conclave$', views.conclave, name='conclave'),
