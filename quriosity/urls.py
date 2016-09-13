@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^question/(?P<qid>[0-9]{,2})/$', question, name='question'),
     url(r'^secret/$', allu, name='allu'),
     url(r'^res/$', res, name='res'),
+    url(r'^winners/$', winners, name='winners'),
 ]
