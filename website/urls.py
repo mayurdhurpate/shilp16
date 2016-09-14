@@ -32,4 +32,5 @@ urlpatterns = [
     url(r'^casubmit/$', views.casubmit, name='casubmit'),
     url(r'^pptsubmit/$', views.pptsubmit, name='pptsubmit'),
     url(r'^team$',views.Staff, name='Staff'),
+    url(r'^hospitality$',views.hospitality, name='hospitality'),
 ]

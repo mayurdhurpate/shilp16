@@ -32,7 +32,10 @@ def register(request):
     return render(request,"register.html",{},RequestContext(request))
 
 def Staff(request):
-    return render(request,"Staff.html",{},RequestContext(request)) 
+    return render(request,"Staff.html",{},RequestContext(request))
+
+def hospitality(request):
+    return render(request,"hospitality.html",{},RequestContext(request)) 
 
 def casubmit(request):
     if request.method=='POST':
