@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^ca$', views.ca, name='ca'),
     url(r'^idp$', views.idp, name='idp'),
     url(r'^ppt$', views.ppt, name='ppt'),
+    url(r'^gre$', views.gre, name='gre'),
 
     url(r'^Data-Analytics$', views.workshop1, name='Data-Analytics'),
     url(r'^Earthquake-Resistance-Structure$', views.workshop2, name='Earthquake-Resistance-Structure'),
@@ -28,6 +29,7 @@ urlpatterns = [
     url(r'^register$', views.register, name='register'),
     url(r'^conclave$', views.conclave, name='conclave'),
     url(r'^worksubmit/$', views.worksubmit, name='worksubmit'),
+    url(r'^gresubmit/$', views.gresubmit, name='gresubmit'),
     url(r'^regsubmit/$', views.regsubmit, name='regsubmit'),
     url(r'^casubmit/$', views.casubmit, name='casubmit'),
     url(r'^pptsubmit/$', views.pptsubmit, name='pptsubmit'),

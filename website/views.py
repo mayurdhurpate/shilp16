@@ -22,7 +22,9 @@ def workshop1(request):
     return render(request,"workshop1.html",{},RequestContext(request)) 
 
 def workshop2(request):
-    return render(request,"workshop2.html",{},RequestContext(request))       
+    return render(request,"workshop2.html",{},RequestContext(request)) 
+def gre(request):
+    return render(request,"gre.html",{},RequestContext(request))           
 
 
 def conclave(request):
@@ -58,7 +60,18 @@ def worksubmit(request):
                                     phone=request.POST['phone'],
                                     college=request.POST['college'])
         return HttpResponse('Your response have been recorded.')
-    return HttpResponse('Authentication failed.')    
+    return HttpResponse('Authentication failed.') 
+
+def gresubmit(request):
+    if request.method=='POST':
+        print(request.POST)
+        u=greUser.objects.create(name=request.POST['name'],
+                                    designation=request.POST['designation'],
+                                    email=request.POST['email'],
+                                    phone=request.POST['phone'],
+                                    college=request.POST['college'])
+        return HttpResponse('Your response have been recorded.')
+    return HttpResponse('Authentication failed.')        
 
 def pptsubmit(request):
     if request.method=='POST':

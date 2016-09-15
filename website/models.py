@@ -43,6 +43,19 @@ class WorkUser(models.Model):
     def __str__(self):
         return "%s, %s" % (self.name, self.college)
 
+class greUser(models.Model):
+    name = models.CharField(max_length=100)
+    college = models.CharField(max_length=100)
+    designation = models.CharField(max_length=20)
+    email = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+
+    def __unicode__(self):
+        return "%s, %s" % (self.name, self>college)
+
+    def __str__(self):
+        return "%s, %s" % (self.name, self.college)        
+
 
 
 
