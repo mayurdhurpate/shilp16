@@ -684,7 +684,7 @@ Features Slider
 .features-slider li h1 {
     margin-bottom: 15px;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 25px;
 }
 .features-slider li p {
     font-size: 14px;
@@ -723,7 +723,7 @@ Features List
 }
 .feature-content {
     display: inline-block;
-    margin-left: 0;
+    margin-left: 5px;
     width: 65%;
 }
 .feature-icon {
