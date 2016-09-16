@@ -25,10 +25,10 @@ class PPTUser(models.Model):
     phone = models.CharField(max_length=15)
 
     def __unicode__(self):
-        return "%s, %s" % (self.author, self.title)
+        return "%s, %s, %s" % (self.author, self.title, self.college)
 
     def __str__(self):
-        return "%s, %s" % (self.author, self.title)
+        return "%s, %s, %s" % (self.author, self.title, self.college)
 
 class WorkUser(models.Model):
     name = models.CharField(max_length=100)
@@ -38,7 +38,7 @@ class WorkUser(models.Model):
     phone = models.CharField(max_length=15)
 
     def __unicode__(self):
-        return "%s, %s" % (self.name, self>college)
+        return "%s, %s" % (self.name, self.college)
 
     def __str__(self):
         return "%s, %s" % (self.name, self.college)
@@ -51,7 +51,7 @@ class greUser(models.Model):
     phone = models.CharField(max_length=15)
 
     def __unicode__(self):
-        return "%s, %s" % (self.name, self>college)
+        return "%s, %s" % (self.name, self.college)
 
     def __str__(self):
         return "%s, %s" % (self.name, self.college)        
