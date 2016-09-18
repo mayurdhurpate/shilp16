@@ -176,7 +176,7 @@ a:hover, a:focus { color: #3dc9b3; text-decoration: none; }
 
 h2 { font-size: 15px; color: #353535; text-transform: uppercase; font-weight: bold; }
 h2::after { content: " "; display: block; width: 35px; margin: 25px auto; }
-.section-padding { padding: 40px 0 50px }
+.section-padding { padding: 0px 0 50px }
 .dark-bg { background: #f3f5f8; }
 .light-bg { background-color: #fff; }
 .dark-box { background: #f3f5f8; -webkit-box-shadow: 0px 3px 0px 0px #f0f2f4; -moz-box-shadow: 0px 3px 0px 0px #f0f2f4; box-shadow: 0px 3px 0px 0px #f0f2f4; }
