@@ -62,6 +62,17 @@ def worksubmit(request):
         return HttpResponse('Your response have been recorded.')
     return HttpResponse('Authentication failed.') 
 
+def workdatasubmit(request):
+    if request.method=='POST':
+        print(request.POST)
+        u=WorkdataUser.objects.create(name=request.POST['name'],
+                                    designation=request.POST['designation'],
+                                    email=request.POST['email'],
+                                    phone=request.POST['phone'],
+                                    college=request.POST['college'])
+        return HttpResponse('Your response have been recorded.')
+    return HttpResponse('Authentication failed.')     
+
 def gresubmit(request):
     if request.method=='POST':
         print(request.POST)
