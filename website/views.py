@@ -13,7 +13,8 @@ def ca(request):
 
 def idp(request):
     return render(request,"industry.html",{},RequestContext(request))
-
+def alum(request):
+    return render(request,"alum.html",{},RequestContext(request))
 def ppt(request):
     return render(request,"presentation.html",{},RequestContext(request))
 

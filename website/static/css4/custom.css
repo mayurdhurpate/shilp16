@@ -176,6 +176,21 @@
 	background-repeat:no-repeat;
 	background-size:85%;
 }
+.sponser{
+	width: 260px;
+	height: 260px;
+    left:150px;
+
+	border-radius: 50%;
+	position: absolute;
+	bottom: 50%;
+    padding-left: px;
+	margin: 0 0 0 0px;
+	background-image:url(../img/ks.png);
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:85%;
+}
 
 .demo-1 [data-icon]:after {
     content: attr(data-icon);

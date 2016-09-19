@@ -1253,7 +1253,7 @@ nav #menuToggle {
     left: 158%;
 }
 .gallery, .footer, .about, .history, .codes, .contact, .single {
-    padding: 6em 0;
+    padding: 0em 0;
 }
 h3.title {
     font-size: 3em;
@@ -1508,7 +1508,7 @@ nav #menuToggle {
     font-size: 2.1em;
 }
 .gallery, .footer, .about, .history, .codes, .contact, .single {
-    padding: 4em 0;
+    padding: 0em 0;
 }
 .contact h3.title {
     font-size: 2.1em;
@@ -1754,7 +1754,7 @@ ol.breadcrumb {
     height: 200px;
 }
 .gallery, .footer, .about, .history, .codes, .contact, .single {
-    padding: 3em 0;
+    padding: 0em 0;
 }
 h3.title {
     font-size: 2.5em;
@@ -2091,3 +2091,14 @@ h3.title {
 }
 
 /*--//responsive-design---*/
+@media(max-width:667px){
+.sponser{
+    font-size: 4.5em;
+}@media(max-width:400px){
+.sponser {
+    width :10px;
+    height:10px;
+}@media(max-width:300px){
+.sponser img {
+    
+} 
