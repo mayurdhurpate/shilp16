@@ -6,6 +6,49 @@
 <html lang="en" class="no-js">
 <head>
 
+	<!-- jQuery Plugin -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- Preloader -->
+<script type="text/javascript">
+    //<![CDATA[
+        $(window).on('load', function() { // makes sure the whole site is loaded 
+            $('#status').fadeOut(); // will first fade out the loading animation 
+            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+            $('body').delay(350).css({'overflow':'visible'});
+        })
+    //]]>
+</script>
+
+             <style>body {
+    overflow: hidden;
+}
+
+/* Preloader */
+
+#preloader {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#fff; /* change if the mask should have another color then white */
+    z-index:4000; /* makes sure it stays on top */
+}
+
+#status {
+    width:200px;
+    height:200px;
+    position:absolute;
+    left:50%; /* centers the loading animation horizontally one the screen */
+    top:50%; /* centers the loading animation vertically one the screen */
+    background-image:url(static/img/39.gif); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-position:center;
+    margin:-100px 0 0 -100px; /* is width and height divided by two */
+}
+
+             </style>
       <!--event_competition-->
 
        <link href="/static/competition/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -227,6 +270,9 @@ $(document).ready(function(){
 </script>
 	</head>
 	<body>
+		<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
 
 	
 			<!--Home Slider-->
@@ -241,20 +287,29 @@ $(document).ready(function(){
 
 							<div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 								<div class="sl-slide-inner">
+									<a href="/hospitality"><button class="btn btn-ambassador" href="#" style="float:right; top:10px;">Hospitality Guidelines</button></a></cite>
 
-								<div class="deco" data-icon=""></div>
-									<h2>Shilp'16</h2>
+								<div class="deco" data-icon="" ></div><br>
+								<br>
+								<br>
+								<br>
+								<br>
+								
+									
 									<br></br>
 
 
 
+                                     <h2 style="top:350px ; font-size:21px; letter-spacing: 3px;"> <img src="/static/img/ks.png"  height="70px">  PRESENTS</h2>
+									
+																	         <div ><br><br><br><br><br><br><br>
+																	          	<h3 style="font-family:Lato, Calibri, Arial, sans-serif; color: white;font-weight: 400; margin: 10px; top:400px; font-size:35px; letter-spacing: 13px;"> SHILP'16</h3>
+																	          	
+																	          	<p class="date" style="top:550px">23<sup>rd</sup>-25<sup>th</sup> September, 2016</p>
 
-									<p class="date">23<sup>rd</sup>-25<sup>th</sup> September, 2016</p>
-																	          <blockquote><div >
+										  <h3 style="font-family:Lato, Calibri, Arial, sans-serif; color: white;font-weight: 400; margin: 10px;  font-size:19px">PRIZES WORTH RS 1 LAKHS</h3></div>
 
-										  <h3 style="font-family:Lato, Calibri, Arial, sans-serif; color: white;font-weight: 400; margin: 10px;">PRIZES WORTH RS 1 LAKHS</h3></div>
-
-										<cite><a href="/hospitality"><button class="btn btn-ambassador" href="#">Hospitality Guidelines</button></a></cite></blockquote>
+								
 							</div>
 							</div>
 							
@@ -578,34 +633,20 @@ $(document).ready(function(){
 			<section class="grid3d vertical" id="grid3d">
 				<div class="grid-wrap">
 					<div class="grid">
-                        <div class="col-md-6  col-sm-12"  style="padding:0px">
+                       <div class="col-md-6  col-sm-12"  style="padding:0px">
+                            <figure class="gridfig">						
+						            <a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s"  >
+							           <img src="/static/images/t.png" class="img-responsive" alt=""/>
+							                <div class="b-wrapper">
+								               <span class="b-animate b-from-left">
+									               <img class="img-responsive" src="/static/images/e.png" alt=""/>
+								                </span>					
+							                </div>
+						            </a>
+                            </figure>
                             <div class="col-md-6  col-sm-12"   style="padding:0px">
 						    <figure class="gridfig">						
 							<a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s"  >
-							<img src="/static/images/t-sm.png" class="img-responsive" alt=""/>
-							<div class="b-wrapper">
-								<span class="b-animate b-from-left">
-									<img class="img-responsive" src="/static/images/e.png" alt=""/>
-								</span>					
-							</div>
-					        </a>
-					        </figure>
-					        </div>
-					        <div class="col-md-6  col-sm-12"   style="padding:0px">
-						    <figure class="gridfig">						
-							<a href="gre" class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s"  >
-							<img src="/static/images/g.png" class="img-responsive" alt=""/>
-							<div class="b-wrapper">
-								<span class="b-animate b-from-left">
-									<img class="img-responsive" src="/static/images/e.png" alt=""/>
-								</span>					
-							</div>
-					        </a>
-					        </figure>
-					        </div>
-                            <div class="col-md-6  col-sm-12"   style="padding:0px">
-						    <figure class="gridfig">						
-							<a  class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s"  >
 							<img src="/static/images/bim.png" class="img-responsive" alt=""/>
 							<div class="b-wrapper">
 								<span class="b-animate b-from-left">
@@ -629,8 +670,7 @@ $(document).ready(function(){
 					    </div>
 					    <div class="clearfix"></div>
 
-                        </div>
-                        <div class="col-md-3 col-sm-12 col-lg-3"  style="padding:0px">
+                        </div>                        <div class="col-md-3 col-sm-12 col-lg-3"  style="padding:0px">
 						   <figure class="gridfig">						
 						  <a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s"  >
 							<img src="/static/images/stones.png" class="img-responsive" alt=""/>
@@ -854,112 +894,7 @@ $(document).ready(function(){
 														            </div>
 														        </div>
 															</div>
-										<div>
-
-
-										   
-									        
-									        
-									          
-								        <div class="mainbody-section text-center" >
-								           <h2 style="font: 300 40px/1.2 'Merienda One', Helvetica, sans-serif;
-															  color: white;
-															  text-shadow: 3px 3px 3px #fff;">
-															  GRE </h2>
-
-											
-								            <div class="container">
-								                <div class="row">
-								                    
-								                    <div class="col-md-3">
-								                        
-								                        <div class="menu-item blue">
-								                            <a href="#menu1" class="menu" data-toggle="tab">
-								                                <i class="fa fa-magic"></i>
-								                                <p>Introduction</p>
-								                            </a>
-								                        </div>
-								                        
-								                        <div class="menu-item green">
-								                            <a href="#menu2" class="menu" data-toggle="tab">
-								                                <i class="fa fa-file-photo-o"></i>
-								                                <p>Task</p>
-								                            </a>
-								                        </div>
-								                        
-								                        <div class="menu-item light-red">
-								                            <a href="#menu3" class="menu" data-toggle="tab">
-								                                <i class="fa fa-user"></i>
-								                                <p>Judging Criteria</p>
-								                            </a>
-								                        </div>
-								                        
-								                    </div>
-								                    
-								                    <div class="col-md-6  text-justify" style="font-size:20px;">
-								                        <div class="tab-content">
-								                            <div id="menu1" class="tab-pane fade in active"   style="overflow:scroll; height:470px; padding-right:10px; color:white;">
-								                                Details To Be Updated Soon
-								                            </div>
-								                            <div id="menu2" class="tab-pane fade in"  style="overflow:scroll; height:470px; padding-right:10px; color:white;">
-								                                Details To Be Updated Soon
-								                              
-								                            </div>
-
-								                            <div id="menu3" class="tab-pane fade in" style="overflow:scroll; height:470px; padding-right:10px; color:white;">
-								                              Details To Be Updated Soon
-								                            </div>
-								                            <div id="menu4" class="tab-pane fade in" style="overflow:scroll; height:470px; padding-right:10px; color:white;">
-								                              
-
-
-
-								                               
-																                             
-								                              Details To Be Updated Soon
-								                            </div>
-
-								                             <div id="menu5" class="tab-pane fade in" style="overflow:scroll; height:470px; padding-right:10px; color:white;">
-								                              <h3>Registration will start soon</h3>
-								                             
-								                            </div>
-								                            <div id="menu6" class="tab-pane fade in" style="overflow:scroll; height:470px; padding-right:10px; color:white;">
-								                              Details To Be Updated Soon
-								                            </div>
-								                            
-
-								                        </div>
-								                    </div>
-								                    
-								                    <div class="col-md-3">
-								                        
-								                        <div class="menu-item light-red">
-								                            <a href="#menu4" class="menu" data-toggle="tab">
-								                                <i class="fa fa-envelope-o"></i>
-								                                <p>Event Structure</p>
-								                            </a>
-								                        </div>
-								                        
-								                        <div class="menu-item color">
-								                            <a href="register">
-								                                <i class="fa fa-mortar-board"></i>
-								                                <p>Register</p>
-								                            </a>
-								                            
-								                        </div>
-								                        
-								                        <div class="menu-item blue">
-								                           <a href="#menu6" class="menu" data-toggle="tab">
-								                                <i class="fa fa-comment-o"></i>
-								                                <p>Contact Us</p>
-								                            </a>
-								                        </div>
-								                        
-								                    </div>
-								                </div>
-								            </div>
-								        </div>
-										</div>
+										
 
 	                                      <div>
 		<div class="mainbody-section text-center"  >
@@ -1316,7 +1251,7 @@ $(document).ready(function(){
                             b.  Shortlisted teams will be called for the presentation for 2nd round which will be held at IIT (BHU) campus, 5 teams will be selected for the final round on the basis of their presentation.<br>
                             c.  In final round, Group discussion will be held under the experienced professors and research scholars.<br>
                             4.  The abstract should be supported with valid references.<br>
-                            5.  Mail your abstract to akash.kbharti.civ14@itbhu.ac.in or rishab.malav.civ14@itbhu.ac.in with subject as <team name> before 15september 2016.<br>
+                            5.  Mail your abstract to akash.kbharti.civ14@itbhu.ac.in or rishab.malav.civ14@itbhu.ac.in with subject as <team name> before 18 september 2016.<br>
                             6.  All the teams are requested to provide contact numbers, valid Email IDs  and name of the college along with the submission.<br>
                             7.  The decision of judges will be final and binding.<br></p>
                             </div>
@@ -2068,7 +2003,7 @@ $(document).ready(function(){
 																		<img src="/static/img/i.jpg" alt="image with circle shape" class="img-circle"  width="202px" height="210px" >
 																		<h2>Mr. Rajib Basu Mallick</h2>
 																	<p>
-																		 Rajib Basu Mallick is currently the Ralph White Family Distinguished Professor of Civil and Environmental Engineering at WPI. He graduated from Jadavpur University, India, in 1989 and received his master’s degree and PhD from Auburn University, USA
+																		 Rajib Basu Mallick is currently the Ralph White Family Distinguished Professor of Civil and Environmental Engineering at Worcester Polytechnic Institute(WPI). He graduated from Jadavpur University, India, in 1989 and received his master’s degree and PhD from Auburn University, USA
 								                                    </p>
 																		
 																	</div>
