@@ -17,6 +17,8 @@ def alum(request):
     return render(request,"alum.html",{},RequestContext(request))
 def ppt(request):
     return render(request,"presentation.html",{},RequestContext(request))
+def conv(request):
+    return render(request,"conv.html",{},RequestContext(request))    
 
 
 def workshop1(request):

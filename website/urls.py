@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^ppt$', views.ppt, name='ppt'),
     url(r'^gre$', views.gre, name='gre'),
     url(r'^alum$', views.alum, name='alum'),
+    url(r'^conv$', views.conv, name='conv'),
     url(r'^Data-Analytics$', views.workshop1, name='Data-Analytics'),
     url(r'^Earthquake-Resistance-Structure$', views.workshop2, name='Earthquake-Resistance-Structure'),
 
