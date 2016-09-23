@@ -242,6 +242,11 @@ $(document).ready(function(){
 				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 			});
 		});
+
+		function blinker() {
+	     $('.blinking').fadeOut(500);
+	     $('.blinking').fadeIn(500);}
+         setInterval(blinker, 1000);
 		</script>
 		<!--//end-smoth-scrolling-->
 
@@ -287,7 +292,9 @@ $(document).ready(function(){
 
 							<div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 								<div class="sl-slide-inner">
-									<a href="/hospitality"><button class="btn btn-ambassador" href="#" style="float:right; top:10px;">Hospitality Guidelines</button></a></cite>
+								    
+									<a href="/hospitality"><button class="btn btn-ambassador" href="#" style="float:right; top:10px;">Hospitality Guidelines</button></a>
+									<a href="/static/Schedule.pdf" target="_blank"><button class="btn btn-ambassador" href="#" style="float:right; top:10px;"><p class="blinking" style="float:left; font-size:10px; color:yellow;"><u>New</u></p>Schedule</button></a>
 
 								<div class="deco" data-icon="" ></div><br>
 								<br>
